@@ -1,0 +1,22 @@
+{
+    "name": "kuroxray/my-collection",
+    "description": "collection",
+    "type": "project",
+    "license": "GNU",
+    "autoload": {
+        "psr-4": {
+            "MyCollectionApi\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Mazzola Gino",
+            "email": "kuro.azeus@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "firebase/php-jwt": "^6.5",
+        "phpmailer/phpmailer": "^6.8"
+    }
+}

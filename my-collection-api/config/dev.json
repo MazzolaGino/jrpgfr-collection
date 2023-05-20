@@ -1,0 +1,11 @@
+{
+    "dbuser": "root",
+    "dbpass": "Mazzola12!",
+    "dbhost": "localhost",
+    "dbname": "wordpress",
+    "validate_token_url": "https://jrpgfr.net/wp-json/mo/v1/xfactor/",
+
+    "client_id": "932ae2fu7zil2ox2edlrfrx5zdtebc",
+    "client_secret": "",
+    "access_token": "fql0ihq2l6p8coz53smdinp0p1oynn"
+}

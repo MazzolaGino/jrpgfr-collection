@@ -1,0 +1,219 @@
+html,
+body {
+    height: 100%;
+}
+
+.uk-logo,
+.uk-logo:hover,
+.uk-logo:active,
+.uk-logo:visited {
+    color: #ffffff;
+}
+
+.uk-navbar-toggle,
+.uk-navbar-toggle:hover,
+.uk-navbar-toggle:active,
+.uk-navbar-toggle:visited {
+    color: #ffffff;
+    padding-top: 2px;
+}
+
+.uk-navbar-container {
+    background-color: #000000 !important;
+}
+
+.user>#name {
+    font-size: 22px;
+}
+
+.header {
+    box-sizing: border-box;
+    border-bottom: 1px #e5e5e5 solid;
+}
+
+.content-padder {
+    margin-left: 0px;
+}
+
+.content-background {
+    min-height: calc(100% - 80px);
+    background-color: #F0F0F0;
+}
+
+.statistics-text {
+    font-size: 25px;
+}
+
+.statistics-number {
+    font-size: 50px;
+}
+
+
+.tm-sidebar-left {
+    position: fixed;
+    z-index: 100;
+    top: 80px;
+    bottom: 0;
+    box-sizing: border-box;
+    width: 240px !important;
+    padding: 40px 40px 60px 40px;
+    border-right: 1px #e5e5e5 solid;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.tm-sidebar-left::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #F5F5F5;
+}
+
+.tm-sidebar-left::-webkit-scrollbar {
+    width: 6px;
+    background-color: #F5F5F5;
+}
+
+.tm-sidebar-left::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: #bdbdbd;
+}
+
+.tm-sidebar-right {
+    position: absolute;
+    top: 0;
+    left: calc(100% + 0px);
+    width: 200px
+}
+
+@media(max-width: 960px) {
+    .tm-sidebar-left {
+        opacity: 0;
+    }
+}
+
+@media (min-width: 960px) {
+    .content-padder {
+        margin-left: 240px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .tm-sidebar-right {
+        left: calc(100% + 0px);
+    }
+
+    .tm-sidebar-left+.tm-main {
+        padding-left: 40px;
+        opacity: 0 !important;
+    }
+}
+
+@media (min-width: 1400px) {
+    .tm-sidebar-left {
+        width: 300px !important;
+        padding: 45px 45px 60px 45px
+    }
+
+    .tm-sidebar-right {
+        left: calc(100% + 60px)
+    }
+
+    .tm-sidebar-left+.tm-main {
+        padding-left: 40px
+    }
+
+    .content-padder {
+        margin-left: 300px;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-track-piece {
+    background-color: #f0f0f0;
+    /*this can also be transparent*/
+}
+
+::-webkit-scrollbar-thumb:vertical {
+    width: 1px;
+    background-color: #1e87f0;
+    border-top: 4px solid #f0f0f0;
+    border-right: 3px solid #f0f0f0;
+    border-bottom: 4px solid #f0f0f0;
+    border-left: 3px solid #f0f0f0;
+}
+
+.uk-link {
+    color: rgb(255, 0, 242);
+}
+
+#main_input input.uk-search-input {
+    height: 55px !important; 
+    font-size: 30px !important;
+}
+
+ /* Tooltip container */
+ .tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+  }
+  
+  /* Tooltip text */
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+  
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+  
+    /* Fade in tooltip */
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  /* Tooltip arrow */
+  .tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+  }
+  
+  /* Show the tooltip text when you mouse over the tooltip container */
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  svg {
+    height: 25px;
+    width: 25px;
+    margin-left: 10px;
+    color:rgb(255, 0, 242);
+  }
+
+  .uk-label{
+    padding: 10px;
+    border-radius: 3px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .uk-card.uk-card-default {
+    margin-bottom: 20px;
+  }

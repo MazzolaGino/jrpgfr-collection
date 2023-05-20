@@ -1,0 +1,41 @@
+<?php return array(
+    'root' => array(
+        'pretty_version' => '1.0.0+no-version-set',
+        'version' => '1.0.0.0',
+        'type' => 'project',
+        'install_path' => __DIR__ . '/../../',
+        'aliases' => array(),
+        'reference' => NULL,
+        'name' => 'kuroxray/my-collection',
+        'dev' => true,
+    ),
+    'versions' => array(
+        'firebase/php-jwt' => array(
+            'pretty_version' => 'v6.5.0',
+            'version' => '6.5.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../firebase/php-jwt',
+            'aliases' => array(),
+            'reference' => 'e94e7353302b0c11ec3cfff7180cd0b1743975d2',
+            'dev_requirement' => false,
+        ),
+        'kuroxray/my-collection' => array(
+            'pretty_version' => '1.0.0+no-version-set',
+            'version' => '1.0.0.0',
+            'type' => 'project',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'reference' => NULL,
+            'dev_requirement' => false,
+        ),
+        'phpmailer/phpmailer' => array(
+            'pretty_version' => 'v6.8.0',
+            'version' => '6.8.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../phpmailer/phpmailer',
+            'aliases' => array(),
+            'reference' => 'df16b615e371d81fb79e506277faea67a1be18f1',
+            'dev_requirement' => false,
+        ),
+    ),
+);

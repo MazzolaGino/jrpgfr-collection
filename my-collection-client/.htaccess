@@ -1,0 +1,11 @@
+RewriteEngine On
+
+# Réécriture pour /app.html/register
+RewriteRule ^app/register$ /app.html?component=register [L]
+RewriteRule ^app/login$ /app.html?component=login [L]
+RewriteRule ^app/home$ /app.html?component=home [L]
+
+# Réécriture interne pour les fichiers CSS et JS
+RewriteRule ^app/css/(.+\.css)$ /css/$1 [L]
+RewriteRule ^app/js/(.+\.js)$ /js/$1 [L]
+RewriteRule ^app/images/(.+?\.(?:png|jpe?g|gif|bmp|ico|webp))$ /images/$1 [L]
