@@ -148,6 +148,14 @@ body {
     color: rgb(255, 0, 242);
 }
 
+#spinner2 {
+    color: rgb(255, 0, 242);
+}
+
+.spinner {
+    color: rgb(255, 0, 242) !important;
+}
+
 #main_input input.uk-search-input {
     height: 55px !important; 
     font-size: 30px !important;

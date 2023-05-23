@@ -5,7 +5,6 @@ import Config from "./Config.js";
 export default class Component {
 
   #events;
-  #notif;
 
   constructor(elts, id = null) {
 
@@ -25,7 +24,7 @@ export default class Component {
     this.#events = elts;
     this.html = this.template();
     this.cm = null;
-    this.#notif = null;
+    this.notif = null;
   }
 
   displaySpinner(id) {
@@ -68,13 +67,21 @@ export default class Component {
   }
 
   setNotif(notif) {
-    this.#notif = notif;
+    this.notif = notif;
   }
 
-  notif(message) {
+  msgSuccess(message) {
 
     setTimeout(function () {
-      notyf.confirm(message);
+      this.notif.success(message);
+    }, 500);
+
+  }
+
+  msgError(message) {
+
+    setTimeout(function () {
+      this.notif.error(message);
     }, 500);
 
   }
@@ -134,31 +141,22 @@ export default class Component {
     }
   }
 
-  htmlToElement(html) {
-    var template = document.createElement('template');
-    html = html.trim(); // Never return a text node of whitespace as the result
-    template.innerHTML = html;
-    return template.content.firstChild;
-}
+ 
 
 
   getElement()
   {
-    return document.getElementById(this.id);
+    return document.querySelector(`[data-name="${this.id}"]`);
   }
 
   render() {
 
-    document.getElementById(this.id).innerHTML = this.html;
+    this.getElement().innerHTML = this.html;
 
     for (let evt in this.keys) {
 
-      console.log(this.keys[evt]);
-
       var elt = document.querySelector('[data-name="' + this.keys[evt] + '"]');
-
-      console.log(elt);
-
+      
       if (elt) {
         if (elt.getAttribute('data-action') && elt.getAttribute('data-method')) {
 

@@ -12,11 +12,15 @@ export default class Config {
     }
 
     static getAuthenticationUrl() {
-        return 'https://jrpgfr.net/wp-json/api/v1/token';
+        return 'https://jrpgfr.net/wp-json/wfactor/v1/token';
     }
 
     static getMeUrl() {
-        return 'https://jrpgfr.net/wp-json/api/v2/users/me';
+        return 'https://jrpgfr.net/wp-json/wfactor/v1/user';
+    }
+
+    static getValidateUrl() {
+        return 'https://jrpgfr.net/wp-json/wfactor/v1/validate';
     }
 
     static getPasswordResetUrl() {

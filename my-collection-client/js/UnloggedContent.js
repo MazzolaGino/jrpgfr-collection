@@ -40,10 +40,9 @@ export default class UnloggedContent extends Component {
         call.post(
             data,
             (response) => {
-                if (response.jwt_token) {
-                    this.cookies.setCookie('token', response.jwt_token);
+                if (response.token) {
+                    this.cookies.setCookie('token', response.token);
                     this.navigate('home');
-                    this.notif('Bienvenue ' + this.get('username'));
                 }
             },
             (error) => {

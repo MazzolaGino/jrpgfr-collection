@@ -20,16 +20,12 @@ export default class ComponentManager {
       this.currentIndex = componentIndex;
 
       const { component } = this.components[this.currentIndex];
+      
       params = (params)? params : [];
       
-      const currentComponent = new component(...params);
-      let notyf = new Notyf();
+      (new component(...params)).render();
+      
 
-      currentComponent.setUikit(UIkit);
-      currentComponent.setNotif(notyf);
-      currentComponent.setCm(this);
-
-      currentComponent.render();
     }
   }
 
@@ -57,6 +53,8 @@ export default class ComponentManager {
       this.render(endpoint, null);
     }else {
       this.render('login', null);
+      (new Notyf()).success('Bienvenue sur JRPGFR Collection !');
+      
     }
   }
 
@@ -67,6 +65,8 @@ export default class ComponentManager {
       if(callback) {
         callback();
       }
+
+
     
       this.handleURLChange();
   });
