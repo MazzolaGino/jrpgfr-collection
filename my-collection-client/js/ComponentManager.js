@@ -22,8 +22,14 @@ export default class ComponentManager {
       const { component } = this.components[this.currentIndex];
       
       params = (params)? params : [];
-      
-      (new component(...params)).render();
+
+      let cmt = new component(...params);
+
+      if(cmt.hasOwnProperty('cm')) {
+        cmt.cm = this;
+      }
+
+      cmt.render();
       
 
     }

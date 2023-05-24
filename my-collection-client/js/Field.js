@@ -51,10 +51,10 @@ export default class Field {
     }
 
     getEventType() {
-        if (this.html === 'input' || this.html === 'textarea') {
+        if (this.html === 'input' || this.html === 'textarea' || this.html === 'a') {
             if (this.actualType === 'checkbox' || this.actualType === 'radio') {
                 return 'change';
-            } else if (this.actualType === 'button' || this.actualType === 'submit') {
+            } else if (this.actualType === 'button' || this.actualType === 'submit' || this.actualType === 'a') {
                 return 'click';
             } else {
                 return 'input';

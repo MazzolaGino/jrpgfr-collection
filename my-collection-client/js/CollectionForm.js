@@ -10,8 +10,8 @@ import FieldComponent from "./FieldComponent.js";
 export default class CollectionForm extends FieldComponent{
 
     constructor(element) {
-
-        super('collection-form-' + element.id, new CollectionFormTemplate(element));
+        let template = new CollectionFormTemplate(element);
+        super(template.form, template);
         this.element = element;
     }
 
@@ -21,6 +21,7 @@ export default class CollectionForm extends FieldComponent{
         this.createStatus();
         this.createReview();
         this.createSubmit();
+        this.createDelete();
     }
 
     createRating() {
@@ -54,12 +55,27 @@ export default class CollectionForm extends FieldComponent{
     }
 
     createSubmit() {
-        this.submit = new Field(this.template.submit, 'Enregistre ta fiche de jeu !', 'button');
-        this.submit.classes = 'uk-button uk-button-default uk-width-1-1';
+        this.submit = new Field(this.template.submit, '<i class="fa-regular fa-floppy-disk"></i> Sauver', 'a', 'a');
+        this.submit.classes = '';
         this.submit.eventHandler = (event) => {
             this.save(event);
         }
         this.submit.load(this.template.submit);
+    }
+
+    createDelete() {
+        this.delete = new Field(this.template.delete, '<i class="fa-solid fa-trash"></i> Supprimer', 'a', 'a');
+        this.delete.classes = '';
+        this.delete.eventHandler = (event) => {
+            this.remove(event);
+        }
+        this.delete.load(this.template.delete);
+    }
+
+    remove(event) {
+        let notif = new Notif();
+        notif.success('le jeu a été supprimé de ta collection');
+        this.erase(this.template.parent);
     }
 
     save(event) {

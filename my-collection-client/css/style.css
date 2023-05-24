@@ -215,6 +215,21 @@ body {
     color:rgb(255, 0, 242);
   }
 
+  .f-action a{
+    color:rgb(255, 0, 242);
+    font-size: 18px;
+  }
+
+  .f-action-group{
+    float:right;
+    margin-left: auto;
+  }
+
+  .f-item {
+    align-items: center;
+  }
+  
+
   .uk-label{
     padding: 10px;
     border-radius: 3px;

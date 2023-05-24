@@ -1,9 +1,5 @@
 import Call from './Call.js';
-import CollectionForm from './CollectionForm.js';
 import Config from './Config.js';
-import Endpoint from './Endpoints.js';
-import Notif  from './Notif.js';
-import Spinner from './Spinner.js';
 
 export default class CollectionItem {
 
@@ -71,10 +67,10 @@ export default class CollectionItem {
         
         let cover = this.element.cover_url ? 'https:' + this.element.cover_url : this.element.cover ? this.element.cover.url : 'images/empty90x90.jpg';
         return /*html*/`
-        <li>
-            <div style="cursor:pointer" class="uk-flex uk-flex-wrap uk-flex-wrap-around" id="game-sheet-${this.element.id}" data-value="${this.element.id}">
-                <div class="uk-margin-left uk-width-1-4"><img width="70" height="70" src="${cover}" alt="${this.element.name}"></div>
-                <div class="uk-margin-left uk-width-1-2">${this.element.name}</div>
+        <li id="collection-item-${this.element.id}">
+            <div style="cursor:pointer" class="uk-flex uk-flex-wrap uk-flex-wrap-around f-item" id="game-sheet-${this.element.id}" data-value="${this.element.id}">
+                <div class="uk-margin-left uk-width-1-4"><img width="90" height="90" src="${cover}" alt="${this.element.name}"></div>
+                <h4 class="uk-margin-left uk-width-1-2">${this.element.name}</h4>
             </div>
             <hr>
             <div class="uk-hidden" id="collection-form-${this.element.id}"></div>
