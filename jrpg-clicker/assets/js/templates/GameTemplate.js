@@ -2,8 +2,8 @@ export default class GameTemplate {
     constructor() {
         this.container = 'clicker-element';
         this.blob = 'blob-clicker';
+        this.ennemy = 'blob-ennemy';
         this.blobBigCount = 'blob-big-count';
-        this.blobAllies = 'blob-allies';
     }
 
     render() {
@@ -16,6 +16,7 @@ export default class GameTemplate {
                     <p class="blob" id="${this.blob}"></p>
                 </div>
             </div>
+            
         `;
     }
 }

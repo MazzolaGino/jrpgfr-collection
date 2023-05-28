@@ -33,3 +33,9 @@
 #clicker-element .uk-card-header{
     background-color: lightgoldenrodyellow;
 }
+
+#blob-ennemy {
+    color: white;
+    font-weight: 900;
+    text-shadow: black 0 0 5px;
+}
