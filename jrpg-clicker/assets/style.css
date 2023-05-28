@@ -10,7 +10,7 @@
 
 body {
   background: url(img/background.jpg) center/cover;
-  font-family: 'BodyFont', Arial, sans-serif;
+  font-family: 'BodyFont ', Arial, sans-serif;
   margin: 0;
   padding: 0;
   height: 111%;
@@ -78,7 +78,6 @@ html {
 }
 
 h1,
-h2,
 h3 {
   font-family: 'GameFont', Arial, sans-serif;
   margin: 0;
@@ -91,9 +90,10 @@ h1 {
 }
 
 h2 {
-  font-size: 35px;
+  font-size: 50px;
   color: floralwhite;
   text-shadow: black 1px 0 10px;
+  font-family: 'BodyFont' !important;
 }
 
 h3 {
