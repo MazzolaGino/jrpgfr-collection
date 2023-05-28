@@ -75,6 +75,7 @@ export default class CollectionForm extends FieldComponent{
     remove(event) {
         let notif = new Notif();
         notif.success('le jeu a été supprimé de ta collection');
+        
         this.erase(this.template.parent);
     }
 

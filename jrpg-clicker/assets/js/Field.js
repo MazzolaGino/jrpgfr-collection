@@ -8,12 +8,21 @@ export default class Field {
         this.options = options;
         this.classes = classes;
         this.id = id;
-        this.eventHandler = this.buildHandler().bind(this);
+        this.element = null;
     }
 
     buildHandler() {
         return (event) => {
             this.value = event.target.value;
+        }
+    }
+
+    setValue(value) {
+        if(this.isFormElement()) {
+            this.element.value = value;
+        }
+        else{
+            this.element.innerHTML = value;
         }
     }
 
@@ -71,29 +80,33 @@ export default class Field {
         if (parentElement) {
             let el = this.create();
 
-            if(insert === true) {
+            if (insert === true) {
                 parentElement.innerHTML = el.outerHTML;
-            } else{
+            } else {
                 parentElement.appendChild(el);
             }
-            
-            const eventType = this.getEventType();
 
-            if (eventType && this.eventHandler) {
-                el.addEventListener(eventType, event => this.eventHandler(event));
-            }
+            this.element = el;
 
         } else {
             console.error(`Parent element with ID "${id}" not found.`);
         }
     }
 
-    load(id) {
-        this.attach(id, true);
+    action(callback) {
+
+        const eventType = this.getEventType();
+
+        console.log(eventType);
+        
+        this.element.addEventListener(eventType, (event) => {
+            callback(this.value);
+        });
     }
 
-    insert(id) {
-
+    load(id) {
+        console.log(id);
+        this.attach(id);
     }
 
     htmlToElement(html) {
@@ -101,5 +114,5 @@ export default class Field {
         html = html.trim();
         template.innerHTML = html;
         return template.content.firstChild;
-      }
+    }
 }

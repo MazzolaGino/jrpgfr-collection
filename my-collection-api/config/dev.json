@@ -3,7 +3,8 @@
     "dbpass": "Mazzola12!",
     "dbhost": "localhost",
     "dbname": "wordpress",
-    "validate_token_url": "https://jrpgfr.net/wp-json/mo/v1/xfactor/",
+    "validate_token_url": "https://jrpgfr.net/wp-json/wfactor/v1/validate",
+    "user_from_token_url": "https://jrpgfr.net/wp-json/wfactor/v1/user",
 
     "client_id": "932ae2fu7zil2ox2edlrfrx5zdtebc",
     "client_secret": "",

@@ -26,13 +26,15 @@ export default class Endpoint {
         };
     }
 
-    static getCollection(search) {
+    static getCollection(search, advance, platform) {
         return {
             controller: 'GameEndpoint',
             action: 'getCollection',
             params: {
                 token: CookieManager.getCookie('token'),
-                search: search
+                search: search,
+                advance: advance,
+                platform: platform
             }
         };
     }
@@ -54,6 +56,16 @@ export default class Endpoint {
             params: {
                 token: CookieManager.getCookie('token'),
                 id: id
+            }
+        };
+    }
+
+    static getPlatforms(){
+        return {
+            controller: 'GameEndpoint',
+            action: 'getPlatforms',
+            params: {
+                token: CookieManager.getCookie('token')
             }
         };
     }

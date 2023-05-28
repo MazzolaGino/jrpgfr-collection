@@ -91,7 +91,7 @@ export default class CustomComponent {
     }
   }
 
-  render() {
+  render(callback) {
     const containerElement = document.querySelector(`[data-name="${this.container}"]`);
 
     if (containerElement) {
@@ -99,6 +99,10 @@ export default class CustomComponent {
       this.initializeElements();
     } else {
       console.error(`Container element with data-name="${this.container}" not found.`);
+    }
+
+    if(callback) {
+      callback();
     }
   }
 

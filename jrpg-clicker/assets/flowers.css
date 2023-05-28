@@ -1,0 +1,320 @@
+.icon {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    background-image: url('img/flowers.png');
+    background-repeat: no-repeat;
+  }
+
+  .glow-effect {
+    filter: drop-shadow(0 0 10px #fff);
+  }
+
+  .plus-one {
+    position: absolute;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px #000000;
+    margin-left: 30px;
+ 
+  }
+  
+  
+  /* Ligne 1 */
+  .icon-1 {
+    background-position: 0 0;
+  }
+  
+  .icon-2 {
+    background-position: -32px 0;
+  }
+  
+  .icon-3 {
+    background-position: -64px 0;
+  }
+  
+  .icon-4 {
+    background-position: -96px 0;
+  }
+  
+  .icon-5 {
+    background-position: -128px 0;
+  }
+  
+  .icon-6 {
+    background-position: -160px 0;
+  }
+  
+  .icon-7 {
+    background-position: -192px 0;
+  }
+  
+  .icon-8 {
+    background-position: -224px 0;
+  }
+  
+  /* Ligne 2 */
+  .icon-9 {
+    background-position: 0 -32px;
+  }
+  
+  .icon-10 {
+    background-position: -32px -32px;
+  }
+  
+  .icon-11 {
+    background-position: -64px -32px;
+  }
+  
+  .icon-12 {
+    background-position: -96px -32px;
+  }
+  
+  .icon-13 {
+    background-position: -128px -32px;
+  }
+  
+  .icon-14 {
+    background-position: -160px -32px;
+  }
+  
+  .icon-15 {
+    background-position: -192px -32px;
+  }
+  
+  .icon-16 {
+    background-position: -224px -32px;
+  }
+  
+  /* Ligne 3 */
+  .icon-17 {
+    background-position: 0 -64px;
+  }
+  
+  .icon-18 {
+    background-position: -32px -64px;
+  }
+  
+  .icon-19 {
+    background-position: -64px -64px;
+  }
+  
+  .icon-20 {
+    background-position: -96px -64px;
+  }
+  
+  .icon-21 {
+    background-position: -128px -64px;
+  }
+  
+  .icon-22 {
+    background-position: -160px -64px;
+  }
+  
+  .icon-23 {
+    background-position: -192px -64px;
+  }
+  
+  .icon-24 {
+    background-position: -224px -64px;
+  }
+  
+  /* Ligne 4 */
+  .icon-25 {
+    background-position: 0 -96px;
+  }
+  
+  .icon-26 {
+    background-position: -32px -96px;
+  }
+  
+  .icon-27 {
+    background-position: -64px -96px;
+  }
+  
+  .icon-28 {
+    background-position: -96px -96px;
+  }
+  
+  .icon-29 {
+    background-position: -128px -96px;
+  }
+  
+  .icon-30 {
+    background-position: -160px -96px;
+  }
+  
+  .icon-31 {
+    background-position: -192px -96px;
+  }
+  
+  .icon-32 {
+    background-position: -224px -96px;
+  }
+  
+  /* Ligne 5 */
+  .icon-33 {
+    background-position: 0 -128px;
+  }
+  
+  .icon-34 {
+    background-position: -32px -128px;
+  }
+  
+  .icon-35 {
+    background-position: -64px -128px;
+  }
+  
+  .icon-36 {
+    background-position: -96px -128px;
+  }
+  
+  .icon-37 {
+    background-position: -128px -128px;
+  }
+  
+  .icon-38 {
+    background-position: -160px -128px;
+  }
+  
+  .icon-39 {
+    background-position: -192px -128px;
+  }
+  
+  .icon-40 {
+    background-position: -224px -128px;
+  }
+  
+  /* Ligne 6 */
+  .icon-41 {
+    background-position: 0 -160px;
+  }
+  
+  .icon-42 {
+    background-position: -32px -160px;
+  }
+  
+  .icon-43 {
+    background-position: -64px -160px;
+  }
+  
+  .icon-44 {
+    background-position: -96px -160px;
+  }
+  
+  .icon-45 {
+    background-position: -128px -160px;
+  }
+  
+  .icon-46 {
+    background-position: -160px -160px;
+  }
+  
+  .icon-47 {
+    background-position: -192px -160px;
+  }
+  
+  .icon-48 {
+    background-position: -224px -160px;
+  }
+  
+  /* Ligne 7 */
+  .icon-49 {
+    background-position: 0 -192px;
+  }
+  
+  .icon-50 {
+    background-position: -32px -192px;
+  }
+  
+  .icon-51 {
+    background-position: -64px -192px;
+  }
+  
+  .icon-52 {
+    background-position: -96px -192px;
+  }
+  
+  .icon-53 {
+    background-position: -128px -192px;
+  }
+  
+  .icon-54 {
+    background-position: -160px -192px;
+  }
+  
+  .icon-55 {
+    background-position: -192px -192px;
+  }
+  
+  .icon-56 {
+    background-position: -224px -192px;
+  }
+  
+  /* Ligne 8 */
+  .icon-57 {
+    background-position: 0 -224px;
+  }
+  
+  .icon-58 {
+    background-position: -32px -224px;
+  }
+  
+  .icon-59 {
+    background-position: -64px -224px;
+  }
+  
+  .icon-60 {
+    background-position: -96px -224px;
+  }
+  
+  .icon-61 {
+    background-position: -128px -224px;
+  }
+  
+  .icon-62 {
+    background-position: -160px -224px;
+  }
+  
+  .icon-63 {
+    background-position: -192px -224px;
+  }
+  
+  .icon-64 {
+    background-position: -224px -224px;
+  }
+  
+  /* Ligne 9 */
+  .icon-65 {
+    background-position: 0 -256px;
+  }
+  
+  .icon-66 {
+    background-position: -32px -256px;
+  }
+  
+  .icon-67 {
+    background-position: -64px -256px;
+  }
+  
+  .icon-68 {
+    background-position: -96px -256px;
+  }
+  
+  .icon-69 {
+    background-position: -128px -256px;
+  }
+  
+  .icon-70 {
+    background-position: -160px -256px;
+  }
+  
+  .icon-71 {
+    background-position: -192px -256px;
+  }
+  
+  .icon-72 {
+    background-position: -224px -256px;
+  }
+  

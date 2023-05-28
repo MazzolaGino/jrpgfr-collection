@@ -4,7 +4,6 @@ export default class Spinner{
     }
 
     show(msg) {
-        console.log(this.element);
         this.element.innerHTML = '<span class="spinner" uk-spinner>' + msg + '</span>';
     }
 

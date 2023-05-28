@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace MyCollectionApi\Api\Utils;
 
@@ -7,6 +7,10 @@ class JRPGDataImporter
     private $clientId;
     private $accessToken;
     private $url = 'https://api.igdb.com/v4/games';
+
+    private $companies = 'https://api.igdb.com/v4/involved_companies';
+    private $genres = 'https://api.igdb.com/v4/genres';
+    private $platforms = 'https://api.igdb.com/v4/platforms';
 
     public function __construct($clientId, $accessToken)
     {
@@ -19,6 +23,46 @@ class JRPGDataImporter
         $fields = 'fields name, summary, url, genres.name, first_release_date, involved_companies.company.name, platforms.name, cover.url;';
         $query = 'search "' . $searchTerm . '";';
 
+        return $this->sendRequest($this->url, $fields, $query);
+    }
+
+    public function getInvolvedCompanyName($id)
+    {
+        $fields = 'fields name;';
+        $query = 'where id = ' . $id . ';';
+
+
+
+        return $this->sendRequest($this->companies, $fields, $query);
+    }
+
+    public function getGenreName($id)
+    {
+        $fields = 'fields name;';
+        $query = 'where id = ' . $id . ';';
+
+        return $this->sendRequest($this->genres, $fields, $query);
+    }
+
+    public function getPlatformName($id)
+    {
+        $fields = 'fields name;';
+        $query = 'where id = ' . $id . ';';
+
+        return $this->sendRequest($this->platforms, $fields, $query);
+    }
+
+    public function getPlatforms($pids)
+    {
+        $fields = 'fields name;';
+        $query = 'where id = (' . $pids . ');';
+
+        return $this->sendRequest($this->platforms, $fields, $query);
+    }
+
+    private function sendRequest($url, $fields, $query)
+    {
+
         $requestData = [
             'method' => 'POST',
             'headers' => [
@@ -29,11 +73,6 @@ class JRPGDataImporter
             'body' => $fields . $query
         ];
 
-        return $this->sendRequest($this->url, $requestData);
-    }
-
-    private function sendRequest($url, $requestData)
-    {
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $requestData['body']);
@@ -52,6 +91,4 @@ class JRPGDataImporter
         }
         return $headerArray;
     }
-
 }
-
