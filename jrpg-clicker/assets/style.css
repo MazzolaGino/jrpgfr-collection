@@ -138,6 +138,27 @@ li:hover{
   width: 100px;
 }
 
+#blob-allies img.one{ 
+  height: 60px;
+  width: 60px;
+  transition: all 0.3s;
+  filter: invert(20%);
+  position: fixed;
+  top: 70%;  
+  left: 40%;
+
+}
+#blob-allies img.two{ 
+  height: 60px;
+  width: 60px;
+  transition: all 0.3s;
+  filter: invert(20%);
+  position: fixed;
+  top: 70%;
+  left: 45%;
+
+}
+
 .menu-list {
   margin-top: 30px;
 }
