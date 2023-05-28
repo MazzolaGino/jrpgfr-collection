@@ -1,0 +1,25 @@
+.uk-card, nav{
+  margin-top: 15px;
+  box-shadow: 1px gray;
+  border: 1px solid gray;
+}
+
+.uk-card {
+  border-radius: 5px;
+}
+
+.uk-container {
+  height: 100%;
+}
+
+.uk-card-header {
+  border-radius: 5px;
+  padding: 8px;
+  font-family: 'GameFont';
+  background-color: lightgoldenrodyellow;
+}
+
+.uk-card-body {
+  padding: 15px 15px;
+}
+

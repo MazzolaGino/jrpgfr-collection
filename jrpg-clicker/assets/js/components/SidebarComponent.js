@@ -22,8 +22,6 @@ export default class CollectionForm extends FieldComponent {
     }
 
     action() {
-        
-        
         this.stats.action((value) => {
             console.log(value);
         });
@@ -39,7 +37,6 @@ export default class CollectionForm extends FieldComponent {
         this.bonus.action((value) => {
             console.log(value);
         });
-
     }
 
     load() {

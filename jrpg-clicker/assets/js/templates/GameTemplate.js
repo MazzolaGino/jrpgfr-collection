@@ -8,12 +8,14 @@ export default class GameTemplate {
 
     render() {
         return /* html */ `
-        
-        <h1>Blob Adventure</h1>
-        <h2 id="${this.blobBigCount}"></h2>
-        <p class="blob" id="${this.blob}"></p>
-        <p class="allies" id="${this.blobAllies}"></p>
-        
+            <div class="uk-card uk-card-default">
+                <div class="uk-card-header">
+                    <img class="icon" src="assets/img/icons/S_Water07.png"> <span id="${this.blobBigCount}"></span>
+                </div>
+                <div class="uk-card-body">
+                    <p class="blob" id="${this.blob}"></p>
+                </div>
+            </div>
         `;
     }
 }

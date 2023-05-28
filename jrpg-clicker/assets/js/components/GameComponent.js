@@ -27,11 +27,6 @@ export default class GameComponent extends FieldComponent{
 
         this.blob.setValue('<img src="assets/img/blob.webp">');
 
-        this.blobAllies = new Field(this.template.blobAllies, '', 'a', 'a');
-        this.blobAllies.load(this.template.blobAllies);
-
-        this.blobAllies.setValue('<img class="one" src="assets/img/blob.webp"><img class="two" src="assets/img/blob.webp">');
-
         this.clicker = new Clicker();
         this.clickerCount = new ClickCounter(this.sidebar.flowersCount, save);
 
@@ -41,6 +36,8 @@ export default class GameComponent extends FieldComponent{
         var container = document.createElement('div');
         container.classList.add('click-container');
         blobImage.parentNode.insertBefore(container, blobImage);
+
+        this.clickerCount.updateClicks();
 
 
        

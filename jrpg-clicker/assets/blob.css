@@ -1,0 +1,35 @@
+.blob img {
+    height: 50px;
+    width: 50px;
+    margin-top: 10%;
+    
+}
+
+#clicker-element .uk-card {
+    background-image: url(img/blob-back.jpg) !important;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+.blob img:hover  {
+    height: 55px;
+    width: 55px;
+}
+
+.blob img:active  {
+    height: 60px;
+    width: 60px;
+}
+
+#clicker-element .uk-card{
+    height: 200px;
+}
+
+#clicker-element .uk-card-body{
+    text-align: center;
+}
+
+#clicker-element .uk-card-header{
+    background-color: lightgoldenrodyellow;
+}

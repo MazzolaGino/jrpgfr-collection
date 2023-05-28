@@ -1,0 +1,52 @@
+@font-face {
+  font-family: 'GameFont';
+  src: url(font.ttf);
+}
+
+@font-face {
+  font-family: 'GameBody';
+  src: url(body.ttf);
+}
+
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  
+  font-family: 'GameBody';
+  letter-spacing: 2px;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* */
+
+  background-image: url(img/background.jpeg) !important;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+h1 {
+  margin-top: 20px;
+  font-family: 'GameFont';
+  font-size: 30px;
+  text-shadow: #FC0 10px 0 10px;
+}
+
+li {
+  cursor: pointer;
+  padding: 10px;
+}
+
+li:hover {
+  background-color: #FC0;
+  margin-left: 2px;
+}

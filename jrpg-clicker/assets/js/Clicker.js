@@ -22,8 +22,8 @@ export default class Clicker {
       const plusOne = document.createElement("div");
       plusOne.classList.add("plus-one");
       plusOne.textContent = "+" + this.clickerCount.getFormatedClickRate();
-      plusOne.style.left = `${x + 60}px`;
-      plusOne.style.top = `${y + 20}px`;
+      plusOne.style.left = `${x + 10}px`;
+      plusOne.style.top = `${y + 10}px`;
   
       document.body.appendChild(plusOne);
   
