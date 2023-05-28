@@ -3,9 +3,14 @@
   src: url('font.ttf') format('truetype');
 }
 
+@font-face {
+  font-family: 'BodyFont';
+  src: url('body.ttf') format('truetype');
+}
+
 body {
   background: url(img/background.jpg) center/cover;
-  font-family: Arial, sans-serif;
+  font-family: 'BodyFont', Arial, sans-serif;
   margin: 0;
   padding: 0;
   height: 111%;
