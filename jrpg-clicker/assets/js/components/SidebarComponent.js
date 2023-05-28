@@ -13,12 +13,11 @@ export default class CollectionForm extends FieldComponent {
         this.flowersCount = this.template.flowersCount;
 
 
-        this.level = new Field(this.template.level, 'Lv.', 'a', 'a');
-        this.stats = new Field(this.template.stats, 'Statistiques', 'a', 'a');
-        this.flowers = new Field(this.template.flowers, 'Fleurs', 'a', 'a');
-        this.map = new Field(this.template.map, 'Map', 'a', 'a');
-        this.bonus = new Field(this.template.bonus, 'Bonus', 'a', 'a');
-    
+        this.level = new Field(this.template.level, 'Lv.', 'span', 'span');
+        this.stats = new Field(this.template.stats, 'Statistiques', 'span', 'span');
+        this.flowers = new Field(this.template.flowers, 'Fleurs', 'span', 'span');
+        this.map = new Field(this.template.map, 'Map', 'span', 'span');
+        this.bonus = new Field(this.template.bonus, 'Bonus', 'span', 'span');
     
     }
 

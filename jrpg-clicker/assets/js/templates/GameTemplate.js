@@ -10,8 +10,6 @@ export default class GameTemplate {
         
         <h1>Blob Adventure</h1>
         <h2 id="${this.blobBigCount}"></h2>
-
-
         <p class="blob" id="${this.blob}"></p>
         
         `;
