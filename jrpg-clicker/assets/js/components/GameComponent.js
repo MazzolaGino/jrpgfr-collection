@@ -1,11 +1,12 @@
 import Sidebar from "../lib/Sidebar.js";
-import Adv from "../lib/Adv.js";
 import Blob from "../lib/Blob.js";
 import GameSave from "../lib/game/GameSave.js";
 import Inventory from "../lib/Inventory.js";
 import Shop from "../lib/Shop.js";
 import AutoCounter from "../lib/counter/AutoCounter.js";
 import Encounters from "../lib/resource/Encounters.js";
+import Display from "../lib/tool/Display.js";
+import Config from "../lib/resource/Config.js";
 
 
 export default class GameComponent {
@@ -13,8 +14,9 @@ export default class GameComponent {
     constructor() {
 
         GameSave.init();
-        Inventory.load();
         Shop.load();
+      
+      
 
         let AutoClick = new AutoCounter();
         
@@ -30,6 +32,7 @@ export default class GameComponent {
             blob: '<img src="assets/img/blob.webp">'
         });
 
+        Display.blobLevel(Config.getLevelId(), GameSave.getSave().level); 
         Encounters.generateStart();
        
     }

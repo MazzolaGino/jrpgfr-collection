@@ -1,7 +1,8 @@
 import NumberFormatter from "../tool/NumberFormatter.js";
 import _ from "../game/GameSave.js";
 import Observable from "../tool/Observable.js";
-import Events from "../tool/Events.js";
+import Display from "../tool/Display.js";
+
 export default class ClickCounter extends Observable {
 
   constructor(selector, updateCountElement, cls = 'glow-effect', mincls = 'plus-one') {
@@ -29,16 +30,11 @@ export default class ClickCounter extends Observable {
 
   increment() {
     _.setClicks(parseFloat(_.getClicks()) + parseFloat(_.getClickRate()));
-    this.updateClicks();
+    Display.clickCount(this.updateCountElement, _.getClicks());
   }
 
   updateClicks() {
-
-    this.notify({
-      type: Events.getDisplayClicks(),
-      id: this.updateCountElement,
-      value: _.getClicks()
-    });
+    Display.clickCount(this.updateCountElement, _.getClicks());
   }
 
   formatNumber(number) {

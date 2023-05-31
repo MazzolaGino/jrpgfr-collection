@@ -160,6 +160,10 @@
     height: 157px; 
 
   }
+
+  #blob-level {
+    float: right;
+  }
   
 
 

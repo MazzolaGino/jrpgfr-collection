@@ -38,6 +38,10 @@ export default class LevelManagement {
         return randomExperience;
     }
 
+    calculateClickRate() {
+        return Math.floor(this.difficulty * Math.pow(this.difficulty, this.level));
+    }
+
     calculateExperienceToNextLevel() {
         return Math.floor(this.base * Math.pow(this.difficulty, this.level));
     }

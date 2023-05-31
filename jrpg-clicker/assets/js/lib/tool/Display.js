@@ -7,8 +7,9 @@ export default class Display {
         elt.textContent = NumberFormatter.format(value);
     }
 
-    static  BattleEnd() {
-        
+    static blobLevel(id, value) {
+        const elt = document.getElementById(id);
+        elt.innerHTML = '<img class="icon" src="assets/img/icons/E_Metal05.png"> ' + value;
     }
 
     static erase(id) {

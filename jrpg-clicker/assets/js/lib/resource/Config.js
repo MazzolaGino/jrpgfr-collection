@@ -16,5 +16,9 @@ export default class Config {
         return 'adv-event-end-button';
     }
 
+    static getLevelId() {
+        return 'blob-level';
+    }
+    
 
 }

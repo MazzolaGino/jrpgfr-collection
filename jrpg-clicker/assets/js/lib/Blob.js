@@ -10,7 +10,6 @@ export default class Blob extends Base {
 
         super(id, data);
         this.display();
-        
 
         this.clicker = new ClickCounter('#blob_character img', Config.getBlobCountId());
         this.clicker.subscribe(new GameObserver());
@@ -24,7 +23,8 @@ export default class Blob extends Base {
         document.getElementById(this.id).innerHTML = /* html */ `
             
             <div class="uk-card-header">
-                <img class="icon" src="assets/img/icons/S_Water07.png"><span id="${Config.getBlobCountId()}"></span>
+                <img class="icon" src="assets/img/icons/S_Water07.png"> <span id="${Config.getBlobCountId()}"></span>
+                 <span id="${Config.getLevelId()}"></span>
             </div>
 
             <div class="uk-card-body">
