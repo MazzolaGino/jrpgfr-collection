@@ -1,7 +1,7 @@
 .blob img {
     height: 50px;
     width: 50px;
-    margin-top: 10%;
+    margin-top: 5%;
     
 }
 
@@ -11,10 +11,16 @@
     background-repeat: no-repeat;
 }
 
+#clicker-element #adv-clicker{
+  background-image: url(img/adv-back.webp) !important;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 
 .blob img:hover  {
     height: 55px;
     width: 55px;
+    cursor: pointer;
 }
 
 .blob img:active  {
@@ -26,6 +32,11 @@
     height: 200px;
 }
 
+#clicker-element .uk-card#adv-clicker{
+    height: 400px; 
+}
+
+
 #clicker-element .uk-card-body{
     text-align: center;
 }
@@ -34,8 +45,122 @@
     background-color: lightgoldenrodyellow;
 }
 
-#blob-ennemy {
-    color: white;
-    font-weight: 900;
-    text-shadow: black 0 0 5px;
+
+.adv img {
+    height: 140px;
+    width: 140x;
+    cursor: pointer;
+    margin-top: 125px;
+    animation:  complex-animation 1s ease-in-out infinite;
 }
+
+.adv img:hover {
+    height: 160px;
+    width: 160x;
+}
+
+.adv img:active {
+    height: 165px;
+    width: 165x;
+}
+
+#blob-inventory{
+    max-height: 200px;
+    overflow-y: scroll;
+}
+
+#blob-inventory img, #blob-shop img{
+    height: 22px;
+    
+}
+
+#blob-inventory span{
+    font-size: 15px;
+}
+
+.shop-item-price {
+    float: right;
+}
+
+.shop-item-nb {
+    float: left;
+    margin-right: 5px;
+}
+
+.shop-item-nb:after {
+    content: ' x '
+}
+
+.shop-item-name{
+    font-size: 12px; 
+}
+@keyframes complex-animation {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px); 
+    }
+    100% {
+      transform: translateY(0); 
+    }
+  }
+
+  @keyframes flash {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  .flash-element {
+    animation: flash 0.5s;
+  }
+
+  @keyframes fight-start {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.2);
+      opacity: 0.8;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  .fight-start-animation {
+    animation: fight-start 0.5s ease-in-out;
+  }
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  .fade-in-animation {
+    animation: fade-in 1s ease-in-out;
+  }
+
+  .event-end-result {
+    background-color: rgba(0,0,0, 0.50);
+    padding: 100px;
+    color: white;
+    font-size: 20px;
+    text-shadow: 1px 1px 2px black, 0 0 1em gold, 0 0 0.2em gold;
+    height: 157px; 
+
+  }
+  
+
+
+

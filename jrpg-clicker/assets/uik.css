@@ -10,6 +10,7 @@
 
 .uk-container {
   height: 100%;
+  max-width: 1800px;
 }
 
 .uk-card-header {
@@ -21,5 +22,11 @@
 
 .uk-card-body {
   padding: 15px 15px;
+}
+
+.uk-button.uk-button-default {
+  font-size: 20px;
+  font-weight: bold;
+  background: gold; 
 }
 

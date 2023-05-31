@@ -1,58 +1,36 @@
-import Clicker from "../Clicker.js";
-import Field from "../Field.js";
-import FieldComponent from "../FieldComponent.js";
-import GameTemplate from "../templates/GameTemplate.js";
-import SidebarComponent from "../components/SidebarComponent.js";
-import ClickCounter from "../lib/ClickCounter.js";
-import save from "../../../save.js";
+import Sidebar from "../lib/Sidebar.js";
+import Adv from "../lib/Adv.js";
+import Blob from "../lib/Blob.js";
+import GameSave from "../lib/game/GameSave.js";
+import Inventory from "../lib/Inventory.js";
+import Shop from "../lib/Shop.js";
+import AutoCounter from "../lib/counter/AutoCounter.js";
+import Encounters from "../lib/resource/Encounters.js";
 
 
-export default class GameComponent extends FieldComponent{
+export default class GameComponent {
 
     constructor() {
 
-   
+        GameSave.init();
+        Inventory.load();
+        Shop.load();
 
-        const sidebar = new SidebarComponent();
-        sidebar.load();
-
-        let template = new GameTemplate();
-        super(template.container, template);
-    
-        this.template = template;
-        this.sidebar = sidebar;
-
-        this.blob = new Field(this.template.blob, '', 'a', 'a');
-        this.blob.load(this.template.blob);
-
-        this.blob.setValue('<img src="assets/img/blob.webp">');
-
-        this.clicker = new Clicker();
-        this.clickerCount = new ClickCounter(this.sidebar.flowersCount, save);
-
-        this.clicker.setClickerCount(this.clickerCount);
-
-        var blobImage = document.querySelector('.blob img');
-        var container = document.createElement('div');
-        container.classList.add('click-container');
-        blobImage.parentNode.insertBefore(container, blobImage);
-
-        this.clickerCount.updateClicks();
-
-
-       
-
+        let AutoClick = new AutoCounter();
         
-        this.blob.action(() => {
-
-            this.clickerCount.increment();
-            
+        const sidebar = new Sidebar('blob-sidebar', {
+            name: 'Blob',
+            stats: 'Stats',
+            flowers: 'Flowers',
+            map: 'Map',
+            bonus: 'Bonus'
         });
 
+        const blob = new Blob('blob-clicker', {
+            blob: '<img src="assets/img/blob.webp">'
+        });
 
+        Encounters.generateStart();
+       
     }
-
-
-
-
 }

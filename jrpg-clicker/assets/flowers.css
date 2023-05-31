@@ -3,6 +3,11 @@
     filter: drop-shadow(0 0 15px #fff);
   }
 
+  
+  .min-effect {
+    filter: drop-shadow(0 0 15px red); 
+  }
+
   .plus-one {
     position: absolute;
     color: #ffffff;
@@ -11,6 +16,24 @@
     text-shadow: 2px 2px 4px #000000;
     margin-left: 30px;
  
+  }
+
+  .min-one {
+    position: absolute;
+    color: red;
+    font-size: 15px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px #000000;
+    margin-left: 30px;
+ 
+  }
+
+  #ennemy {
+    transition: transform 0.2s;
+  }
+  
+  .ennemy-impact {
+    transform: scale(1.2);
   }
   
   
