@@ -25,7 +25,7 @@ export default class GameComponent {
         });
 
         const blob = new Blob('blob-clicker', {
-            blob: '<img src="assets/img/blob.webp">'
+            blob: '<img src="assets/img/hero.gif">'
         });
 
         Display.blobLevel(Config.getLevelId(), GameSave.getSave().level); 

@@ -117,21 +117,21 @@ li {
 }
 
 .blob img {
-  width: 50px;
-  height: 50px;
+  width: 80px;
+  height: 80px;
   margin-top: 75px;
   vertical-align: middle;
 }
 
 .blob img:hover {
-  width: 55px;
-  height: 55px;
+  width: 85px;
+  height: 85px;
   cursor: pointer;
 }
 
 .blob img:active {
-  width: 60px;
-  height: 60px;
+  width: 90px;
+  height: 90px;
 }
 
 .adv img {
@@ -267,9 +267,10 @@ li {
 }
 
 #clicker-element #blob-clicker {
-  background-image: url(img/background.jpg) !important;
+  background-image: url(img/background.png) !important;
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   border-radius: 5px;
 }
 
@@ -283,7 +284,10 @@ li {
 
 .adv-container {
   height: 200px; 
-  background-color: rgba(0, 0, 0, 0.295);
+  background-image: url(img/background.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   text-align: center; 
   border-radius: 5px;
 }

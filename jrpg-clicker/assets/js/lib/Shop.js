@@ -112,6 +112,7 @@ export default class Shop extends Observable{
         vItemPrice.textContent = NumberFormatter.format(item.price);
 
         vItem.append(vItemImg, vItemNb, vItemPrice);  
+
         el.append(vItem);
     }
 
