@@ -6,16 +6,31 @@ import Observable from "./tool/Observable.js";
 
 export default class Shop extends Observable{
     static load() {
-        const save = GameSave.getSave();
-        let shopItems = save.shop;
 
-        if (shopItems.length < 1) {
-            save.shop = this.getDefaultShopItems();
-            GameSave.setSave(save);
-            shopItems = save.shop;
-        }
+        setInterval(()=> {
 
-        shopItems.forEach(item => this.line(item));
+            document.getElementById('blob-shop').innerHTML = `
+                <div class="blob-menu-header"> Shop </div>
+            `
+            
+            const save = GameSave.getSave();
+            
+            let shopItems = save.shop;
+    
+            if (shopItems.length < 1) {
+                save.shop = this.getDefaultShopItems();
+                GameSave.setSave(save);
+                shopItems = save.shop;
+            }
+            
+            shopItems.forEach((item) => { 
+                if(this.canBuy(item.price)) {
+                    this.line(item);
+                }
+            });
+
+        }, 500);
+       
     }
 
     static canBuy(price) {
