@@ -14,10 +14,10 @@ export default class Adv extends Base {
 
     display() {
         document.getElementById(this.id).innerHTML = /* html */ `
-            <div class="uk-card-header">
-                <img class="icon" src="assets/img/icons/S_Holy01.png"><span id="adv_count"></span>
+            <div class="blob-menu-header">
+                <img class="icon" src="assets/img/icons/S_Holy01.png"> <span id="adv_count"></span>
             </div>
-            <div class="uk-card-body">
+            <div class="adv-container">
                 <p class="adv" id="adv_character">${this.data.adv}</p>
             </div>
         `;

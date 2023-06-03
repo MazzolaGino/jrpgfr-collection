@@ -2,6 +2,7 @@ import NumberFormatter from "../tool/NumberFormatter.js";
 import _ from "../game/GameSave.js";
 import Observable from "../tool/Observable.js";
 import Display from "../tool/Display.js";
+import LevelManagement from "../tool/LevelManager.js";
 
 export default class ClickCounter extends Observable {
 
@@ -29,7 +30,10 @@ export default class ClickCounter extends Observable {
   }
 
   increment() {
-    _.setClicks(parseFloat(_.getClicks()) + parseFloat(_.getClickRate()));
+    let lm = new LevelManagement();
+
+    console.log(lm.calculateClickRate());
+    _.setClicks(parseFloat(_.getClicks()) + parseFloat(lm.calculateClickRate()));
     Display.clickCount(this.updateCountElement, _.getClicks());
   }
 
@@ -44,9 +48,9 @@ export default class ClickCounter extends Observable {
   animate(event) {
 
     const clickEffect = document.createElement("div");
-
+    let lm = new LevelManagement();
     clickEffect.classList.add(this.mincls);
-    clickEffect.textContent = NumberFormatter.format(_.getClickRate());
+    clickEffect.textContent = NumberFormatter.format(lm.calculateClickRate());
     clickEffect.style.left = event.clientX + 15 + "px";
     clickEffect.style.top = event.clientY + 15 + "px";
 

@@ -8,44 +8,295 @@
   src: url(body.ttf);
 }
 
-
 html,
 body {
-  height: 100%;
-  width: 100%;
-  
   font-family: 'GameBody';
   -webkit-touch-callout: none;
-  /* iOS Safari */
   -webkit-user-select: none;
-  /* Safari */
   -khtml-user-select: none;
-  /* Konqueror HTML */
   -moz-user-select: none;
-  /* Old versions of Firefox */
   -ms-user-select: none;
-  /* Internet Explorer/Edge */
   user-select: none;
-  /* */
-
   background-image: url(img/background.jpeg) !important;
   background-size: cover;
   background-attachment: fixed;
 }
 
 h1 {
-  margin-top: 20px;
+  margin: 20px;
   font-family: 'GameFont';
-  font-size: 30px; 
+  font-size: 30px;
   text-shadow: #FC0 10px 0 10px;
+  display: block;
+}
+
+p {
+  margin: 0;
+}
+
+.block {
+  margin-bottom: 20px;
+}
+
+.blob-menu {
+  background-color: rgba(216, 249, 253, 0.904);
+  border-radius: 5px;
+}
+
+.blob-menu-header {
+  background-color: rgba(255, 196, 0, 0.904);
+  border-radius: 5px;
+  padding: 10px;
+  height: 20px;
+}
+
+.blob-menu-item {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 20px;
+}
+
+.blob-menu-item img{
+  height: 20px;
+}
+
+.blob-menu-item:hover {
+  background-color: aqua;
+}
+
+.blob-container {
+  max-width: 1600px;
+  margin: 0 auto;
+  display: flex;
+  padding: 20px;
+}
+
+.left-sidebar {
+  flex-basis: 20%;
+  margin-right: 10px;
+}
+
+.content {
+  flex-basis: 60%;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.right-sidebar {
+  flex-basis: 20%;
+  margin-left: 10px;
+}
+
+@media screen and (max-width: 900px) {
+  .blob-container {
+    flex-wrap: wrap;
+    padding: 20px;
+  }
+  
+  .left-sidebar,
+  .content,
+  .right-sidebar {
+    flex-basis: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
 }
 
 li {
-  cursor: pointer;
-  padding: 10px;
+  list-style: none;
+  margin-left: -35px;
+  margin-right: 5px;
 }
 
-li:hover {
+.blob {
+  text-align: center;
+  height: 200px;
+}
+
+.blob img {
+  width: 50px;
+  height: 50px;
+  margin-top: 75px;
+  vertical-align: middle;
+}
+
+.blob img:hover {
+  width: 55px;
+  height: 55px;
+  cursor: pointer;
+}
+
+.blob img:active {
+  width: 60px;
+  height: 60px;
+}
+
+.adv img {
+  width: 96px;
+  height: 96px;
+  margin-top: 50px;
+  cursor: pointer;
+  animation: complex-animation 1s ease-in-out infinite;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.adv img:hover {
+  width: 99px;
+  height: 99px;
+}
+
+.adv img:active {
+  width: 103px;
+  height: 103px;
+}
+
+.world1 .uk-card-body,
+.world2 {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.world1 .uk-card-body {
+  background-image: url(img/back/world1.png) !important;
+}
+
+.blob-inventory {
+  max-height: 200px;
+  overflow-y: scroll;
+}
+
+.blob-inventory img,
+.blob-shop img {
+  height: 15px;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.blob-inventory span {
+  font-size: 15px;
+}
+
+.shop-item-price {
+  float: right;
+}
+
+.shop-item-nb:before {
+  content: ' x ';
+}
+
+.shop-item-name {
+  font-size: 12px;
+}
+
+@keyframes complex-animation {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes flash {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.flash-element {
+  animation: flash 0.5s;
+}
+
+@keyframes fight-start {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.fight-start-animation {
+  animation: fight-start 0.5s ease-in-out;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fade-in-animation {
+  animation: fade-in 1s ease-in-out;
+}
+
+.event-end-result {
+  color: white; 
+}
+
+.battle-result {
+  padding: 30px;
+}
+.battle-result p {
+  margin-bottom: 10px;
+}
+
+.fight-start-animation h1 {
+  font-size: 23px;
+  color: white;
+  text-shadow: 1px 1px 2px black, 0 0 1em black, 0 0 0.2em black;
+}
+
+#clicker-element #blob-clicker {
+  background-image: url(img/background.jpg) !important;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 5px;
+}
+
+#blob-level { 
+  float: right;
+}
+
+#adv-event-start {
+  margin-top: 100px;
+}
+
+.adv-container {
+  height: 200px; 
+  background-color: rgba(0, 0, 0, 0.295);
+  text-align: center; 
+  border-radius: 5px;
+}
+
+button {
+  border: none;
   background-color: #FC0;
-  margin-left: 2px;
+  font-size: 20px;
+  padding: 5px;
+  font-family: 'GameBody'; 
+}
+
+#close-map {
+  float: right;
+  cursor: pointer;
 }

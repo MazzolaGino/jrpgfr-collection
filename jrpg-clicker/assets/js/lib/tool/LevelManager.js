@@ -38,6 +38,19 @@ export default class LevelManagement {
         return randomExperience;
     }
 
+    distributeRandomHp() {
+
+        const minExperience = Math.floor(this.experienceToNextLevel * 0.1);
+        const maxExperience = Math.floor(this.experienceToNextLevel * 0.3);
+        const randomHp = Math.floor(Math.random() * (maxExperience - minExperience + 1)) + minExperience;
+
+        return randomHp;
+    }
+
+    distributeRandomMonster() {
+        return Math.floor(Math.random() * 63) + 1;
+    }
+
     calculateClickRate() {
         return Math.floor(this.difficulty * Math.pow(this.difficulty, this.level));
     }

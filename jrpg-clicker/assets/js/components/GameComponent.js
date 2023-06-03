@@ -1,7 +1,6 @@
 import Sidebar from "../lib/Sidebar.js";
 import Blob from "../lib/Blob.js";
 import GameSave from "../lib/game/GameSave.js";
-import Inventory from "../lib/Inventory.js";
 import Shop from "../lib/Shop.js";
 import AutoCounter from "../lib/counter/AutoCounter.js";
 import Encounters from "../lib/resource/Encounters.js";
@@ -15,15 +14,12 @@ export default class GameComponent {
 
         GameSave.init();
         Shop.load();
-      
-      
 
         let AutoClick = new AutoCounter();
         
         const sidebar = new Sidebar('blob-sidebar', {
             name: 'Blob',
             stats: 'Stats',
-            flowers: 'Flowers',
             map: 'Map',
             bonus: 'Bonus'
         });
@@ -34,6 +30,5 @@ export default class GameComponent {
 
         Display.blobLevel(Config.getLevelId(), GameSave.getSave().level); 
         Encounters.generateStart();
-       
     }
 }

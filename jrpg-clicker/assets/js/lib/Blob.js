@@ -22,12 +22,12 @@ export default class Blob extends Base {
 
         document.getElementById(this.id).innerHTML = /* html */ `
             
-            <div class="uk-card-header">
+            <div class="blob-menu-header">
                 <img class="icon" src="assets/img/icons/S_Water07.png"> <span id="${Config.getBlobCountId()}"></span>
                  <span id="${Config.getLevelId()}"></span>
             </div>
 
-            <div class="uk-card-body">
+            <div class="blob-body">
                 <p class="blob" id="blob_character">${this.data.blob}</p>
             </div>
         `;

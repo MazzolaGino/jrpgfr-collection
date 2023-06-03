@@ -11,19 +11,16 @@
   .plus-one {
     position: absolute;
     color: #ffffff;
-    font-size: 15px;
-    font-weight: bold;
-    text-shadow: 2px 2px 4px #000000;
+    font-size: 20px;
     margin-left: 30px;
+    font-family: 'GameBody';
  
   }
 
   .min-one {
     position: absolute;
     color: red;
-    font-size: 15px;
-    font-weight: bold;
-    text-shadow: 2px 2px 4px #000000;
+    font-size: 20px;
     margin-left: 30px;
  
   }

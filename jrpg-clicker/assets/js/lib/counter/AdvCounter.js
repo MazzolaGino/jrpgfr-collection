@@ -1,9 +1,8 @@
 import Events from "../tool/Events.js";
 import NumberFormatter from "../tool/NumberFormatter.js";
 import Observable from "../tool/Observable.js";
-import GameSave from "../game/GameSave.js";
-import Encounters from "../resource/Encounters.js";
 import EventEnd from "../EventEnd.js";
+import LevelManagement from "../tool/LevelManager.js";
 
 export default class AdvCounter extends Observable {
 
@@ -11,8 +10,9 @@ export default class AdvCounter extends Observable {
 
     super();
 
+    let lm = new LevelManagement();
     this.hp = hp;
-    this.rate = GameSave.getClickRate();
+    this.rate = lm.calculateClickRate();
     this.eventStart = eventStart;
 
     this.effectcls = effectcls;
@@ -39,7 +39,7 @@ export default class AdvCounter extends Observable {
 
     this.hp -= this.rate;
     if (this.hp <= 0) {
-      let eventEnd = new EventEnd();
+      new EventEnd();
     } else {
       this.displayHp();
     }

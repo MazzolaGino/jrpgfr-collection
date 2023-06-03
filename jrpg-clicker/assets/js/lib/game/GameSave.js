@@ -10,7 +10,7 @@ export default class GameSave {
 
     static createSave() {
         CookieManager.setCookie('game', JSON.stringify({
-            difficulty: 1.5,
+            difficulty: 1.35,
             clicks: 1,
             click_rate: 1,
             level: 1,

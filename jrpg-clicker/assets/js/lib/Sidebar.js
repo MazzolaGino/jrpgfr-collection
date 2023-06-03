@@ -1,3 +1,4 @@
+import Map from "./Map.js";
 import Base from "./tool/Base.js";
 
 export default class Sidebar extends Base {
@@ -8,29 +9,19 @@ export default class Sidebar extends Base {
         this.display();
     }
 
-    
-
     display() {
 
 
         document.getElementById(this.id).innerHTML = /* html */`
-            <div class="uk-card-header">
-                <span>${this.data.name}</span>
-            </div>
-            <div class="uk-card-body">
-                <ul class="uk-nav">
-                    <li id="blob_stat">${this.data.stats}</li> 
-                    <li id="blob_flowers">${this.data.flowers}</li>
-                    <li id="blob_map">${this.data.map}</li>
-                    <li id="blob_bonus">${this.data.bonus}</li>
-                </ul>
+            <div class="blob-menu"> 
+                <div class="blob-menu-header"> Menu </div>
+                <div class="blob-menu-item" id="blob_stat">${this.data.stats}</div> 
+                <div class="blob-menu-item" id="blob_map">${this.data.map}</div> 
             </div>
         `;
 
         this.statClick();
-        this.flowersClick();
         this.mapClick();
-        this.bonusClick();
         
     }
 
@@ -40,21 +31,9 @@ export default class Sidebar extends Base {
         });
     }
 
-    flowersClick() {
-        document.getElementById('blob_flowers').addEventListener('click', () => {
-            console.log('flowers_click'); 
-        });
-    }
-
     mapClick() {
-        document.getElementById('blob_map').addEventListener('click', () => {
-            console.log('map_click'); 
-        });
-    }
-
-    bonusClick() {
-        document.getElementById('blob_bonus').addEventListener('click', () => {
-            console.log('bonus_click'); 
+        document.querySelector('#blob_map').addEventListener('click', () => {
+            new Map();
         });
     }
 

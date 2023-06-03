@@ -5,6 +5,7 @@ import Config from "./resource/Config.js";
 import Encounters from "./resource/Encounters.js";
 import LevelManagement from "./tool/LevelManager.js";
 import Display from "./tool/Display.js";
+import NumberFormatter from "./tool/NumberFormatter.js";
 
 export default class EventEnd {
 
@@ -17,6 +18,10 @@ export default class EventEnd {
 
         this.exp = lm.distributeRandomExperience();
         this.blob = this.exp * parseFloat(save.click_rate);
+
+
+        this.VExp = NumberFormatter.format(lm.distributeRandomExperience());
+        this.VBlob = NumberFormatter.format(this.exp * parseFloat(save.click_rate));
         this.levelUp = '';
 
         save.level = lm.level;
@@ -38,14 +43,16 @@ export default class EventEnd {
 
     display() {
         document.getElementById(Config.getAdvId()).innerHTML = /* html */ `
-            <div class="uk-card-header fade-in">
+            <div class="blob-menu-header fight-start-animation">
                 Battle End Result!  
             </div>
-            <div class="uk-card-body event-end-result fade-in">
-                <p>${this.levelUp}</p>
-                <p>Exp: ${this.exp}</p>
-                <p><img class="icon" src="assets/img/icons/S_Water07.png"> x ${this.blob} </p>
-                <p><button class="uk-button uk-button-default" id="${Config.getEventEndButtonId()}">Continue...</button></p>
+            <div class="adv-container event-end-result">
+                <div class="battle-result">
+                    <p class="fight-start-animation">${this.levelUp}</p>
+                    <p>Exp: ${this.VExp}</p>
+                    <p><img class="icon" src="assets/img/icons/S_Water07.png"> x ${this.VBlob} </p>
+                    <p><button class="uk-button uk-button-default" id="${Config.getEventEndButtonId()}">Continue...</button></p>
+                </div>
             </div>
         `;
 

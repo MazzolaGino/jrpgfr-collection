@@ -8,10 +8,6 @@ export default class EventStart {
         this.eventBody = '';
         this.generateEvent();
         this.eventBusy = false;
-
-        setTimeout(() => {
-
-        }, 3000);
     }
 
     generateEvent() {
@@ -21,9 +17,7 @@ export default class EventStart {
                 this.eventBusy = true;
                 this.eventName = 'Battle';
                 this.eventBody = /* html */ `
-                    <h1>Start</h1>
-                    <br /><br />
-                    <p><button id="${Config.getEventStartId()}" class="uk-button uk-button-default">Go!</button></p>`;
+                    <p><button id="${Config.getEventStartId()}" class="uk-button uk-button-default"> Start Battle!</button></p>`;
                 this.display();
             }
         }, 1000);
@@ -32,10 +26,10 @@ export default class EventStart {
     display() {
 
         document.getElementById(Config.getAdvId()).innerHTML = /* html */ `
-            <div class="uk-card-header fight-start-animation">
+            <div class="blob-menu-header fight-start-animation">
                 New ${this.eventName}! 
             </div>
-            <div class="uk-card-body fight-start-animation">
+            <div class="adv-container">
                 ${this.eventBody}
             </div>
         `;

@@ -36,7 +36,7 @@ export default class Shop extends Observable{
     }
 
     static click(event) {
-        const li = event.target.closest('li');
+        const li = event.target.closest('div'); 
 
         if (li) {
 
@@ -74,9 +74,10 @@ export default class Shop extends Observable{
 
     static line(item) {
         const el = document.getElementById('blob-shop');
+        el.classList.add('blob-menu');
 
-        const vItem = document.createElement('li');
-        vItem.classList.add('shop-item');
+        const vItem = document.createElement('div');
+        vItem.classList.add('blob-menu-item');
         vItem.dataset.value = JSON.stringify(item);
         vItem.addEventListener('click', (event) => this.click(event));
 
@@ -89,13 +90,13 @@ export default class Shop extends Observable{
 
         const vItemNb = document.createElement('span');
         vItemNb.classList.add('shop-item-nb');
-        vItemNb.textContent = NumberFormatter.format(item.nb);
+        vItemNb.textContent = ' ' + NumberFormatter.format(item.nb);
 
         const vItemPrice = document.createElement('span');
         vItemPrice.classList.add('shop-item-price');
         vItemPrice.textContent = NumberFormatter.format(item.price);
 
-        vItem.append(vItemNb, vItemImg, vItemName, vItemPrice);
+        vItem.append(vItemImg, vItemNb, vItemPrice);  
         el.append(vItem);
     }
 
