@@ -19,6 +19,25 @@ export default class Config {
     static getLevelId() {
         return 'blob-level';
     }
+
+    static getLibertyTown(){
+        return {
+            id: 'LibertyTown',
+            name: 'Liberty Town'
+        }
+    }
+
+    static getMapContainerId() {
+        return 'map-container';
+    }
+
+    static getMapLocationId() {
+        return 'map-location';
+    }
+
+    static getGridMapId() {
+        return 'grid-map';
+    }
     
 
 }

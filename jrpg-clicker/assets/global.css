@@ -246,7 +246,7 @@ li {
 }
 
 .fade-in-animation {
-  animation: fade-in 1s ease-in-out;
+  animation: fade-in 2s;
 }
 
 .event-end-result {

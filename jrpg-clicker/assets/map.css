@@ -1,10 +1,16 @@
 #grid-map {
   position: relative;
   height: 100%;
-  background-image: url(img/map/World1-1.png);
+  background: url(img/map/World1-1.png);
   background-size: cover;
   background-position: center; 
 
+}
+
+#grid-map.grid-map-liberty-town {
+  background: url(img/zone/LibertyTown.jpg);
+  background-size: cover;
+  background-position: center; 
 }
 
 .grid-map-row {
@@ -20,7 +26,8 @@
 }
 
 .path { 
-  background-color: rgba(255, 255, 255, 0.692);
+  background-color: rgba(234, 0, 255, 0.7);
+  cursor: pointer;
 }
 
 .city { 
