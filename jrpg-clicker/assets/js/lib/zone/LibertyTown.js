@@ -9,6 +9,7 @@ export default class LibertyTown extends BaseMap {
         this.weaponShop = 'Weapon Shop';
         this.goddessStatue = 'Goddess Status';
         this.well = 'Town Well';
+        this.pnj = 'Baldurc';
 
        
     }
@@ -21,7 +22,7 @@ export default class LibertyTown extends BaseMap {
 
         this.createGrid(30, 40, [
             { x: 7, y: 15, value: this.itemShop},
-          
+            { x: 17, y: 17, value: this.pnj},
             { x: 7, y: 24, value: this.goddessStatue},
             { x: 17, y: 22, value: this.well},
             { x: 29, y: 15, value: this.weaponShop},
