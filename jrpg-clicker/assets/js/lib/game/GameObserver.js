@@ -19,17 +19,6 @@ export default class GameObserver extends Observer {
         }
     }
 
-    enemyDefeated(event) {
-       
-        // todo: montrer le compte rendu du combat
-        
-
-
-        // todo: augmenter l'expérience du personnage
-        // todo: rajouter de l'xp et un système de niveau au personnage
-        // todo: ajouter un bouton pour fermer et relancer le Encounters generate
-    }
-
     displayClicks(event) {
         Display.clickCount(event.id, event.value); 
     }
