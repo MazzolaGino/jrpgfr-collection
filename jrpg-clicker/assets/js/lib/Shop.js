@@ -5,13 +5,15 @@ import NumberFormatter from "./tool/NumberFormatter.js";
 import Observable from "./tool/Observable.js";
 
 export default class Shop extends Observable{
-    static load() {
-
+    static load(id = 'blob-shop', onlyItems = false) {
+         
         setInterval(()=> {
-
-            document.getElementById('blob-shop').innerHTML = `
-                <div class="blob-menu-header"> Shop </div>
-            `
+            document.getElementById(id).innerHTML = '';
+            if(onlyItems === false) {
+                document.getElementById(id).innerHTML = `
+                    <div class="blob-menu-header"> Shop </div>
+                `
+            }
             
             const save = GameSave.getSave();
             
@@ -25,7 +27,7 @@ export default class Shop extends Observable{
             
             shopItems.forEach((item) => { 
                 if(this.canBuy(item.price)) {
-                    this.line(item);
+                    this.line(item, id);
                 }
             });
 
@@ -87,8 +89,8 @@ export default class Shop extends Observable{
         }
     }
 
-    static line(item) {
-        const el = document.getElementById('blob-shop');
+    static line(item, id = 'blob-shop') {
+        const el = document.getElementById(id);
         el.classList.add('blob-menu');
 
         const vItem = document.createElement('div');

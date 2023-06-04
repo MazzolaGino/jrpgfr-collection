@@ -6,13 +6,13 @@ export default class EventStart {
     constructor() {
         this.eventName = '';
         this.eventBody = '';
-        this.generateEvent();
+        this.interval = this.generateEvent();
         this.eventBusy = false;
     }
 
     generateEvent() {
         
-        setInterval(() => {
+        return setInterval(() => {
             if(this.eventBusy === false) {
                 this.eventBusy = true;
                 this.eventName = 'Battle';
@@ -21,6 +21,7 @@ export default class EventStart {
                 this.display();
             }
         }, 1000);
+
     }
 
     display() {
@@ -39,6 +40,9 @@ export default class EventStart {
         });
     }
 
-
+    stop() {
+        document.getElementById(Config.getAdvId()).innerHTML = '';
+        clearInterval(this.interval);
+    }
 
 }

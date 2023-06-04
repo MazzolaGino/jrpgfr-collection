@@ -1,0 +1,43 @@
+#grid-map {
+  position: relative;
+  height: 100%;
+  background: url(../img/map/World1-1.png);
+  background-size: cover;
+  background-position: center; 
+
+}
+
+#grid-map.grid-map-liberty-town {
+  background: url(../img/zone/LibertyTown.jpg);
+  background-size: cover;
+  background-position: center; 
+}
+
+.grid-map-row {
+  display: flex;
+  align-items: stretch;  /* Assure une hauteur uniforme pour toutes les cellules */
+
+}
+
+.grid-map-cell {
+  flex: 1;
+  padding: 1%; /* Ajustez la taille des cellules en fonction de vos préférences */
+  box-sizing: border-box;
+}
+
+.path { 
+  background-color: rgba(234, 0, 255, 0.7);
+  cursor: pointer;
+}
+
+.city { 
+  background-color: rgb(127,255,0, 0.7);
+}
+
+.combat {
+  background-color: rgba(255, 0, 0, 0.514);
+}
+
+.chest {
+  background-color: rgba(255, 217, 0, 0.836);
+}

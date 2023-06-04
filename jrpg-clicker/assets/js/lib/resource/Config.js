@@ -27,6 +27,13 @@ export default class Config {
         }
     }
 
+    static getSacredStone(){
+        return {
+            id: 'SacredStone',
+            name: 'Sacred Stone Dungeon'
+        }
+    }
+
     static getMapContainerId() {
         return 'map-container';
     }

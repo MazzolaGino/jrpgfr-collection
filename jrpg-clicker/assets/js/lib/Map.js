@@ -1,6 +1,7 @@
 import LibertyTown from '../lib/zone/LibertyTown.js';
 import BaseMap from './BaseMap.js';
 import Config from './resource/Config.js';
+import SacredStone from './zone/SacredStone.js';
 
 export default class Map extends BaseMap {
 
@@ -10,10 +11,10 @@ export default class Map extends BaseMap {
     this.display();
 
     this.createGrid(30, 40, [
-      { x: 3, y: 10, value: 'Liberty Town', zone: () => {(new LibertyTown()).display()} },
-      { x: 7, y: 10, value: 'Sacred Stone'},
-      { x: 8, y: 6, value: 'Sacred Forest'},
-      { x: 6, y: 13, value: 'Mountain Dungeon'},
+      {x: 3, y: 10, value: 'Liberty Town', zone: () => {(new LibertyTown()).display()}},
+      {x: 7, y: 10, value: 'Sacred Stone', zone: () => {(new SacredStone()).display()}},
+      {x: 8, y: 6, value: 'Sacred Forest'},
+      {x: 6, y: 13, value: 'Mountain Dungeon'},
     ]);
 
     this.loadCloseMap();

@@ -2,14 +2,14 @@ import Config from "./resource/Config.js";
 
 export default class BaseMap {
 
-  constructor() {}
+  constructor() { }
 
-  loadCloseMap(){
+  loadCloseMap() {
     document.getElementById('close-map').addEventListener('click', (event) => {
-        document.getElementById(Config.getMapContainerId()).innerHTML = '';
+      document.getElementById(Config.getMapContainerId()).innerHTML = '';
     });
   }
-    
+
   viewZoneName(event) {
     document.getElementById(Config.getMapLocationId()).innerHTML = '- ' + event.target.dataset.value;
   }
@@ -35,13 +35,25 @@ export default class BaseMap {
         cell.dataset.value = '';
 
         line.find((action) => {
+
           if (action.y === i && action.x === j) {
+
             cell.dataset.value = action.value;
+
             cell.classList.add('path');
-            cell.addEventListener('click', (event) => action.zone());
+
+            if (action.zone) {
+              cell.addEventListener('click', (event) => action.zone(event));
+            }
+
+            if (action.action) {
+              cell.addEventListener('click', (event) => action.action(event));
+            }
+
             cell.addEventListener('mouseover', this.viewZoneName.bind(this));
             cell.addEventListener('mouseleave', this.exitViewZoneName.bind(this));
           }
+
         });
 
         row.appendChild(cell);

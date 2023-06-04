@@ -7,7 +7,6 @@ import Encounters from "../lib/resource/Encounters.js";
 import Display from "../lib/tool/Display.js";
 import Config from "../lib/resource/Config.js";
 
-
 export default class GameComponent {
 
     constructor() {
@@ -15,7 +14,7 @@ export default class GameComponent {
         GameSave.init();
         Shop.load();
 
-        let AutoClick = new AutoCounter();
+        new AutoCounter();
         
         const sidebar = new Sidebar('blob-sidebar', {
             name: 'Blob',
@@ -29,6 +28,6 @@ export default class GameComponent {
         });
 
         Display.blobLevel(Config.getLevelId(), GameSave.getSave().level); 
-        Encounters.generateStart();
+        
     }
 }

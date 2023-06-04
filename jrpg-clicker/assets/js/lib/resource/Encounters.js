@@ -6,7 +6,7 @@ export default class Encounters {
 
 
     static generateStart() {
-        let evt = new EventStart();
+        return new EventStart();
     }
 
 
@@ -17,5 +17,9 @@ export default class Encounters {
             hp: lm.distributeRandomHp(),
             adv: `<img src="assets/img/monsters/1 (${monster}).png">`
         });
+    }
+
+    static bstop(eventStart) {
+        clearInterval(eventStart.interval);
     }
 }
