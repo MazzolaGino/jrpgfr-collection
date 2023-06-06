@@ -9,7 +9,7 @@ export default class SacredStone extends BaseMap {
     constructor() {
         super();
 
-        this.level = 3;
+        this.level = 1;
         this.exit = 'Exit Dungeon';
         this.eventStart = null;
         this.lm = new LevelManagement();

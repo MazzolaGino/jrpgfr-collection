@@ -38,6 +38,7 @@
 
   #modal-shop, #modal-weapon-shop {
     flex-basis: 50%;
+    color: white;
   }
   
   

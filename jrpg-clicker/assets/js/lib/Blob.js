@@ -52,6 +52,7 @@ export default class Blob extends Base {
             <li id="${Config.getLevelId()}" class="levelTtp">🆙 ${lm.level}</li>
             <li class="clickRate">💥 ${NumberFormatter.format(lm.calculateClickRate())}</li>
             <li class="AutoClick">💫 ${NumberFormatter.format(lm.calculateAutoClick())}</li>
+            <li class="ExpNext">📈 ${NumberFormatter.format(lm.experience)} / ${NumberFormatter.format(lm.calculateExperienceToNextLevel())}</li>
          
         </ul>`;
 
@@ -59,5 +60,9 @@ export default class Blob extends Base {
         new Tooltip('clickRate', 'Damage or Harvest value');
         new Tooltip('AutoClick', 'Auto Click value');
         new Tooltip('HeroGold', 'Your gold');
+        new Tooltip('ExpNext', 'Experience for next level');
+        
+
+        
     }
 }

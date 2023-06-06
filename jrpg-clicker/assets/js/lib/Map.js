@@ -12,7 +12,7 @@ export default class Map extends BaseMap {
 
     this.createGrid(30, 40, [
       {x: 3, y: 10, value: 'Liberty Town', zone: () => {(new LibertyTown()).display()}},
-      {x: 7, y: 10, value: 'Sacred Stone - Dungeon lvl 3', zone: () => {(new SacredStone()).display()}},
+      {x: 7, y: 10, value: 'Sacred Stone - Dungeon lvl 1', zone: () => {(new SacredStone()).display()}},
       {x: 8, y: 6, value: 'Sacred Forest'},
       {x: 6, y: 13, value: 'Mountain Dungeon'},
     ]);

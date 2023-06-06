@@ -1,13 +1,10 @@
-import Drops from "./resource/Drops.js";
 import _ from "./game/GameSave.js";
-import Inventory from "./Inventory.js";
 import Config from "./resource/Config.js";
 import Encounters from "./resource/Encounters.js";
 import LevelManagement from "./tool/LevelManager.js";
 import Display from "./tool/Display.js";
 import NumberFormatter from "./tool/NumberFormatter.js";
 import Blob from "./Blob.js";
-import EventStart from "./EventStart.js";
 
 export default class EventEnd {
 
@@ -19,11 +16,11 @@ export default class EventEnd {
         let prevLevel = _.getSave().level;
 
         this.exp = lm.distributeRandomExperience();
-        this.blob = this.exp * parseFloat(save.click_rate);
+        this.blob = this.exp/1.5;
 
 
-        this.VExp = NumberFormatter.format(lm.distributeRandomExperience());
-        this.VBlob = NumberFormatter.format(lm.distributeRandomExperience() / 1.5);
+        this.VExp = NumberFormatter.format(this.exp);
+        this.VBlob = NumberFormatter.format(this.blob);
         this.levelUp = '';
 
         save.level = lm.level;

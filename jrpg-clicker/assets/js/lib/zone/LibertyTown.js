@@ -18,6 +18,8 @@ export default class LibertyTown extends BaseMap {
         this.modalW = new Modal('modal', 'Weapon Shop', `<div id="modal-hero"><img src="assets/img/isa-deu-zoom-ugh.gif"></div><div id="modal-weapon-shop"></div>`);
         // todo: fermer les intervals à la fermeture des modal !!!
     }
+
+    
     display() {
         
         document.getElementById(Config.getMapContainerId()).innerHTML = /* html */ `

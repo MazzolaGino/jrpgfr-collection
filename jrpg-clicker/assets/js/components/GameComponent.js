@@ -19,6 +19,15 @@ export default class GameComponent {
 
         Display.blobLevel(Config.getLevelId(), GameSave.getSave().level);
 
+        setInterval(() => {
+          if(document.getElementById('modal-shop') && document.getElementById('modal-shop').innerHTML === '') {
+            document.getElementById('modal-shop').innerHTML = 'No item available for purchase';
+          }
+
+          if(document.getElementById('modal-weapon-shop') && document.getElementById('modal-weapon-shop').innerHTML === '') {
+            document.getElementById('modal-weapon-shop').innerHTML = 'No weapon available for purchase';
+          }
+        }, 500);
       
      
     }
