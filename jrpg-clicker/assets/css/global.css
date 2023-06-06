@@ -11,13 +11,8 @@
 html,
 body {
   font-family: 'GameBody';
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
-  background-image: url(../img/back/body.jpg) !important;
+  background-image: url(../img/back/body.jpg);
   background-size: cover;
   background-attachment: fixed;
 }
@@ -48,10 +43,12 @@ button:active {
   margin-bottom: 20px;
 }
 
-
 .battle-result {
   background-color: #00000093;
+  position: relative;
+  animation: scrollRight 1s ease-out forwards;
 }
+
 .blob-menu {
   background-color: rgba(0, 0, 0);
 }
@@ -72,7 +69,7 @@ button:active {
   color: white;
 }
 
-.blob-menu-item img{
+.blob-menu-item img {
   height: 20px;
 }
 
@@ -92,23 +89,20 @@ button:active {
 }
 
 .blob-body {
-  background: url('../img/back/hero-back.jpg'); 
-
+  background: url('../img/back/hero-back.jpg');
   background-repeat: repeat-x;
   animation: slideleft 6000s infinite linear;
   height: 200px;
   display: flex;
-
 }
 
 .blob-body .hero-statistic {
   font-size: 15px;
-  flex-basis: 25%; 
-
+  flex-basis: 40%;
 }
 
 .content-hero {
-  flex-basis: 75%; 
+  flex-basis: 60%; 
 }
 
 @media screen and (min-width: 900px) {
@@ -119,17 +113,15 @@ button:active {
   }
 }
 
-.blob-body .hero-statistic ul{
+.blob-body .hero-statistic ul {
   color: white;
   background-color: rgba(0, 0, 0, 0.747);
-  height: 100%;  
+  height: 100%;
   margin: 0;
-  
 }
 
 .blob-body .hero-statistic ul li {
-  padding : 10px;
-
+  padding: 10px;
 }
 
 li {
@@ -141,19 +133,14 @@ li {
 .blob {
   text-align: center;
   height: 200px;
- 
 }
 
-#blob-clicker { 
-  border: 3px solid black; 
-  box-shadow: 5px 10px 18px rgba(46, 45, 45, 0.452);
-}
-
-#map-container {
+#blob-clicker {
   border: 3px solid black;
   box-shadow: 5px 10px 18px rgba(46, 45, 45, 0.452);
 }
 
+#map-container,
 #modal-content {
   border: 3px solid black;
   box-shadow: 5px 10px 18px rgba(46, 45, 45, 0.452);
@@ -171,12 +158,16 @@ li {
 }
 
 .blob img:active {
-  height: 135px;  
+  height: 135px;
 }
 
 @keyframes slideleft {
-  from { background-position: 0%; }
-  to { background-position: 90000%; }
+  from {
+    background-position: 0%;
+  }
+  to {
+    background-position: 90000%;
+  }
 }
 
 .adv img {
@@ -206,7 +197,7 @@ li {
 }
 
 .world1 .uk-card-body {
-  background-image: url(../img/back/world1.png) !important;
+  background-image: url(../img/back/world1.png);
 }
 
 .blob-inventory {
@@ -229,12 +220,30 @@ li {
   float: right;
 }
 
-.shop-item-nb:before {
+.shop-item-nb::before {
   content: ' x ';
 }
 
 .shop-item-name {
   font-size: 12px;
+}
+
+@keyframes scrollRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes scrollLeft {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
 
 @keyframes complex-animation {
@@ -295,12 +304,13 @@ li {
 }
 
 .event-end-result {
-  color: white; 
+  color: white;
 }
 
 .battle-result {
-  padding: 30px;
+  padding: 5px;
 }
+
 .battle-result p {
   margin-bottom: 10px;
 }
@@ -311,27 +321,44 @@ li {
   text-shadow: 1px 1px 2px black, 0 0 1em black, 0 0 0.2em black;
 }
 
-
 #clicker-element #blob-clicker {
   background-color: black;
 }
 
-#blob-level { 
-  float: right;
-}
-
 #adv-event-start {
   margin-top: 100px;
+  text-align: center;
 }
 
 .adv-container {
-
-  height: 200px; 
-  text-align: center; 
+  height: 200px;
+  text-align: center;
   background-image: url(../img/back/battle.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  display: flex;
+}
+
+#adv_character,
+.adv_start {
+  flex-basis: 100%;
+}
+
+.battle-result {
+  flex-basis: 30%;
+  font-size: 12px;
+}
+
+.adv-hero {
+  flex-basis: 70%;
+}
+
+.adv-hero img {
+  height: 180px; 
+  position: relative;
+  animation: scrollLeft 1s ease-out;
+  animation-fill-mode: forwards;
 }
 
 button {
@@ -339,7 +366,7 @@ button {
   background-color: #FC0;
   font-size: 15px;
   padding: 5px;
-  font-family: 'GameBody'; 
+  font-family: 'GameBody';
 }
 
 #close-map {
@@ -351,7 +378,7 @@ button {
   background-color: white;
 }
 
-#hero-statistics li{
+#hero-statistics li {
   margin-bottom: 1px;
 }
 
@@ -359,9 +386,8 @@ button {
   visibility: hidden;
   background-color: #000;
   color: #fff;
-  position: absolute; 
+  position: absolute;
   z-index: 99;
   padding: 10px;
   font-size: 15px;
-
 }

@@ -7,6 +7,7 @@ import LevelManagement from "./tool/LevelManager.js";
 import Display from "./tool/Display.js";
 import NumberFormatter from "./tool/NumberFormatter.js";
 import Blob from "./Blob.js";
+import EventStart from "./EventStart.js";
 
 export default class EventEnd {
 
@@ -22,7 +23,7 @@ export default class EventEnd {
 
 
         this.VExp = NumberFormatter.format(lm.distributeRandomExperience());
-        this.VBlob = NumberFormatter.format(this.exp * parseFloat(save.click_rate));
+        this.VBlob = NumberFormatter.format(lm.distributeRandomExperience() / 1.5);
         this.levelUp = '';
 
         save.level = lm.level;
@@ -50,10 +51,11 @@ export default class EventEnd {
                 Battle End Result!  
             </div>
             <div class="adv-container event-end-result">
+                <div class="adv-hero"><img src="assets/img/isa-deu-jumpinganim700.gif" /></div>
                 <div class="battle-result">
                     <p class="fight-start-animation">${this.levelUp}</p>
                     <p>Exp: ${this.VExp}</p>
-                    <p><img class="icon" src="assets/img/icons/S_Water07.png"> x ${this.VBlob} </p>
+                    <p><img class="icon" src="assets/img/icons/I_GoldCoin.png"> x ${this.VBlob} </p>
                     <p><button class="uk-button uk-button-default" id="${Config.getEventEndButtonId()}">Continue...</button></p>
                 </div>
             </div>

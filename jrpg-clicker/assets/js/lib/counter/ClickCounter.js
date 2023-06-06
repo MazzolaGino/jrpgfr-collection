@@ -51,24 +51,25 @@ export default class ClickCounter extends Observable {
   
     const elementTop = blobCount.offsetTop;
     const elementLeft = blobCount.offsetLeft;
-    const positionTop = elementTop - 10;
+    const positionTop = elementTop ;
   
     const displayElement = document.createElement("div");
     displayElement.textContent = '+ ' + NumberFormatter.format(bonus);
     displayElement.style.position = "absolute";
     displayElement.style.top = positionTop + "px";
-    displayElement.style.left = (elementLeft + 100)+ "px";
-    displayElement.style.color = 'green';
-    document.body.appendChild(displayElement);
+    displayElement.style.left = (elementLeft)+ "px";
+    displayElement.style.color = 'rgb(30, 255, 0)';
+    
   
     let distance = positionTop;
   
     const animationInterval = setInterval(() => {
+      document.body.appendChild(displayElement);
 
       distance -= 3;
-      displayElement.style.top = distance + "px";
+      displayElement.style.top = distance - 10 + "px";
 
-      if (distance < positionTop - 40) {
+      if (distance < positionTop - 40 ) {
         clearInterval(animationInterval);
         document.body.removeChild(displayElement);
       }

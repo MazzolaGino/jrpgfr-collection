@@ -5,15 +5,15 @@ import LevelManagement from "../tool/LevelManager.js";
 export default class Encounters {
 
 
-    static generateStart() {
-        return new EventStart();
+    static generateStart(level) {
+        return new EventStart(level);
     }
 
 
-    static generateAdv(eventStart) {
+    static generateAdv() {
         let lm = new LevelManagement();
         let monster = lm.distributeRandomMonster();
-        return new Adv(eventStart, 'adv-clicker', {
+        return new Adv('adv-clicker', {
             hp: lm.distributeRandomHp(),
             adv: `<img src="assets/img/monsters/1 (${monster}).png">`
         });

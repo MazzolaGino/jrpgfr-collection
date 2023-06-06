@@ -6,7 +6,7 @@ export default class EventStart {
     constructor() {
         this.eventName = '';
         this.eventBody = '';
-        this.interval = this.generateEvent();
+        this.interval = this.generateEvent(); 
         this.eventBusy = false;
     }
 
@@ -14,10 +14,10 @@ export default class EventStart {
         
         return setInterval(() => {
             if(this.eventBusy === false) {
-                this.eventBusy = true;
+                this.eventBusy = true;  
                 this.eventName = 'Battle';
                 this.eventBody = /* html */ `
-                    <p><button id="${Config.getEventStartId()}" class="uk-button uk-button-default"> Start Battle!</button></p>`;
+                    <div class="adv_start"><button id="${Config.getEventStartId()}" class="uk-button uk-button-default"> Start Battle!</button></div>`;
                 this.display();
             }
         }, 1000);
@@ -30,13 +30,13 @@ export default class EventStart {
             <div class="blob-menu-header fight-start-animation">
                 New ${this.eventName}! 
             </div>
-            <div class="adv-container">
+            <div class="adv-container">            
                 ${this.eventBody}
             </div>
         `;
 
         document.getElementById(Config.getEventStartId()).addEventListener('click', (event) => {
-            Encounters.generateAdv(this);
+            Encounters.generateAdv();
         });
     }
 

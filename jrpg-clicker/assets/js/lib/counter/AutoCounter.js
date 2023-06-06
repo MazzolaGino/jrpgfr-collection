@@ -28,7 +28,7 @@ export default class AutoCounter{
         displayElement.textContent = '+ ' + NumberFormatter.format(bonus);
         displayElement.style.position = "absolute";
         displayElement.style.top = positionTop + "px";
-        displayElement.style.left = elementLeft + "px";
+        displayElement.style.left = (elementLeft + 75) + "px";
         displayElement.style.color = 'gold';
         document.body.appendChild(displayElement);
       
@@ -39,7 +39,7 @@ export default class AutoCounter{
           distance -= 3;
           displayElement.style.top = distance + "px";
 
-          if (distance < positionTop - 40) {
+          if (distance < positionTop - 30) {
             clearInterval(animationInterval);
             document.body.removeChild(displayElement);
           }

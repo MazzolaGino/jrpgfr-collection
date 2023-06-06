@@ -13,6 +13,24 @@ export default class LevelManagement {
         this.experienceToNextLevel = this.calculateExperienceToNextLevel();
     }
 
+    setCurrentDungeonLevel(level) {
+        let save = _.getSave();
+        save.current_dungeon_level = level;
+        _.setSave(save);
+    }
+
+    getCurrentDungeonLevel() {
+        return _.getSave().current_dungeon_level;
+    }
+
+    resetCurrentDungeonLevel() {
+        let save = _.getSave();
+        save.current_dungeon_level = null;
+        _.setSave(save);
+    }
+
+
+
     gainExperience(amount) {
 
         this.experience += amount;
@@ -31,23 +49,38 @@ export default class LevelManagement {
     }
 
     distributeRandomExperience() {
-        const minExperience = Math.floor(this.experienceToNextLevel * 0.1);
-        const maxExperience = Math.floor(this.experienceToNextLevel * 0.3);
-        const randomExperience = Math.floor(Math.random() * (maxExperience - minExperience + 1)) + minExperience;
+        
+        let minExperience = Math.floor(this.experienceToNextLevel * 0.1);
+        let maxExperience = Math.floor(this.experienceToNextLevel * 0.3);
+
+        if(this.getCurrentDungeonLevel()) {
+            minExperience = this.calculateExperienceToNextLevelCustom(this.getCurrentDungeonLevel()) * 0.1;
+            maxExperience = this.calculateExperienceToNextLevelCustom(this.getCurrentDungeonLevel()) * 0.3;
+        }
+        
+        
+        const randomExperience = Math.floor(Math.random() * (maxExperience - minExperience + 1)) + minExperience;   
         
         
         this.gainExperience(randomExperience/5);
 
         return randomExperience/5;
     }
-
+ 
     distributeRandomHp() {
 
-        const minExperience = Math.floor(this.experienceToNextLevel * 0.1);
-        const maxExperience = Math.floor(this.experienceToNextLevel * 0.3);
+        let minExperience = Math.floor(this.experienceToNextLevel * 0.1);
+        let maxExperience = Math.floor(this.experienceToNextLevel * 0.3);
+
+        if(this.getCurrentDungeonLevel()) {
+            minExperience = this.calculateExperienceToNextLevelCustom(this.getCurrentDungeonLevel()) * 0.1;
+            maxExperience = this.calculateExperienceToNextLevelCustom(this.getCurrentDungeonLevel()) * 0.3;
+        }
+
+     
         const randomHp = Math.floor(Math.random() * (maxExperience - minExperience + 1)) + minExperience;
 
-        return randomHp/10;
+        return randomHp;
     }
 
     distributeRandomMonster() {
@@ -82,5 +115,9 @@ export default class LevelManagement {
 
     calculateExperienceToNextLevel() {
         return (Math.floor(this.base * Math.pow(this.difficulty, this.level)) * 3);
+    }
+
+    calculateExperienceToNextLevelCustom(level) {
+        return (Math.floor(this.base * Math.pow(this.difficulty, level)) * 3);
     }
 }

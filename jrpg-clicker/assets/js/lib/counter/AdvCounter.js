@@ -6,14 +6,13 @@ import LevelManagement from "../tool/LevelManager.js";
 
 export default class AdvCounter extends Observable {
 
-  constructor(eventStart, hp, id, hpcls, effectcls = 'min-effect', mincls = 'min-one') {
+  constructor(hp, id, hpcls, effectcls = 'min-effect', mincls = 'min-one') {
 
     super();
 
     let lm = new LevelManagement();
     this.hp = hp;
     this.rate = lm.calculateClickRate();
-    this.eventStart = eventStart;
 
     this.effectcls = effectcls;
     this.mincls = mincls;
