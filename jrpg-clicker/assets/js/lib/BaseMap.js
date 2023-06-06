@@ -50,8 +50,14 @@ export default class BaseMap {
               cell.addEventListener('click', (event) => action.action(event));
             }
 
-            cell.addEventListener('mouseover', this.viewZoneName.bind(this));
-            cell.addEventListener('mouseleave', this.exitViewZoneName.bind(this));
+            if(action.img) {
+              cell.style.backgroundImage = 'url(assets/img/ezgif-4-cad90254ac.gif)';
+              cell.style.backgroundSize = 'cover';
+              cell.style.backgroundPosition = 'center';
+            }
+
+            cell.addEventListener('mouseover', (event) => {this.viewZoneName(event)});
+            cell.addEventListener('mouseleave', (event) => {this.exitViewZoneName(event)});
           }
 
         });

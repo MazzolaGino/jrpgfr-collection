@@ -6,6 +6,7 @@ import Encounters from "./resource/Encounters.js";
 import LevelManagement from "./tool/LevelManager.js";
 import Display from "./tool/Display.js";
 import NumberFormatter from "./tool/NumberFormatter.js";
+import Blob from "./Blob.js";
 
 export default class EventEnd {
 
@@ -37,6 +38,8 @@ export default class EventEnd {
         }
         
         _.setSave(save);
+
+        Blob.updateStatistics();
 
         this.display();
     }

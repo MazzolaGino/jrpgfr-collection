@@ -1,4 +1,6 @@
+import Blob from "../Blob.js";
 import _ from "../game/GameSave.js";
+import NumberFormatter from "./NumberFormatter.js";
 
 export default class LevelManagement {
     constructor() {
@@ -26,16 +28,17 @@ export default class LevelManagement {
         this.level++;
         this.experience -= this.experienceToNextLevel;
         this.experienceToNextLevel = this.calculateExperienceToNextLevel();
-
     }
 
     distributeRandomExperience() {
         const minExperience = Math.floor(this.experienceToNextLevel * 0.1);
         const maxExperience = Math.floor(this.experienceToNextLevel * 0.3);
         const randomExperience = Math.floor(Math.random() * (maxExperience - minExperience + 1)) + minExperience;
-        this.gainExperience(randomExperience);
+        
+        
+        this.gainExperience(randomExperience/5);
 
-        return randomExperience;
+        return randomExperience/5;
     }
 
     distributeRandomHp() {
@@ -44,7 +47,7 @@ export default class LevelManagement {
         const maxExperience = Math.floor(this.experienceToNextLevel * 0.3);
         const randomHp = Math.floor(Math.random() * (maxExperience - minExperience + 1)) + minExperience;
 
-        return randomHp;
+        return randomHp/10;
     }
 
     distributeRandomMonster() {
@@ -52,10 +55,32 @@ export default class LevelManagement {
     }
 
     calculateClickRate() {
-        return Math.floor(this.difficulty * Math.pow(this.difficulty, this.level));
+
+        let autoClickValue = 0;
+        let clickRate = Math.floor(this.difficulty * Math.pow(this.difficulty, this.level)) / 10;
+
+        _.getSave().weapon_shop.forEach(item => {
+            autoClickValue += (((parseFloat(clickRate) * parseFloat(item.nb) * parseFloat(item.bonus))));
+        });
+
+
+        return clickRate + autoClickValue;
     }
 
+    calculateAutoClick() {
+
+        let autoClickValue = 0;
+        let clickRate = Math.floor(this.difficulty * Math.pow(this.difficulty, this.level)) / 10;
+
+        _.getSave().shop.forEach(item => {
+            autoClickValue += (clickRate * parseFloat(item.nb) * parseFloat(item.bonus));
+        });
+
+        return autoClickValue * 2;
+    }
+
+
     calculateExperienceToNextLevel() {
-        return Math.floor(this.base * Math.pow(this.difficulty, this.level));
+        return (Math.floor(this.base * Math.pow(this.difficulty, this.level)) * 3);
     }
 }

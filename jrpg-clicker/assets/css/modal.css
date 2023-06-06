@@ -17,21 +17,33 @@
   
   .modal-content {
     margin: 10% auto;
-    border: 1px solid #888;
     max-width: 50%;
     box-sizing: border-box;
-    border-radius: 5px;
   }
 
   #modal-body {
     min-height: 250px;
     padding: 20px;
-    border-radius: 5px;
-    background-color: #fefefe;
+    background-color: rgb(0, 0, 0); 
+    display: flex;
+  }
+
+  #modal-hero {
+    flex-basis: 50%;
+  }
+
+  #modal-hero img {
+    height: 200px; 
+  } 
+
+  #modal-shop, #modal-weapon-shop {
+    flex-basis: 50%;
   }
   
+  
+  
   .close {
-    color: #aaa;
+    color: white;
     float: right;
     font-size: 28px;
     font-weight: bold;

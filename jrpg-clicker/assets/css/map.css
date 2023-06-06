@@ -7,11 +7,22 @@
 
 }
 
-#grid-map.grid-map-liberty-town {
-  background: url(../img/zone/LibertyTown.jpg);
-  background-size: cover;
-  background-position: center; 
+#map-container {
+  background-color: black;
 }
+.grid-map-liberty-town {
+  background: url(../img/zone/LibertyTown.jpg) !important;
+  background-size: cover !important;
+  background-position: center !important; 
+}
+
+.grid-map-sacred-stone {
+  background: url(../img/zone/SacredStone.jpg) !important;
+  background-size: contain  !important;
+  background-position: center  !important;
+  background-repeat: no-repeat !important; 
+}
+
 
 .grid-map-row {
   display: flex;
@@ -26,7 +37,7 @@
 }
 
 .path { 
-  background-color: rgba(234, 0, 255, 0.7);
+  background-color: rgba(255, 217, 0, 0.438);
   cursor: pointer;
 }
 

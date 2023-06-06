@@ -12,7 +12,7 @@ export default class GameSave {
         CookieManager.setCookie('game', JSON.stringify({
             difficulty: 1.35,
             clicks: 1,
-            click_rate: 1,
+            click_rate: 0.01,
             level: 1,
             exp: 0.0,
             exp_to_level_base: 100,
@@ -20,9 +20,8 @@ export default class GameSave {
             adv_base: [10, 30],
             bonus: [],
             inventory: [],
-            shop: []
-            
-
+            shop: [],
+            weapon_shop: []
         }), 1000);
     }
 

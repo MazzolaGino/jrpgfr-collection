@@ -19,9 +19,7 @@ export default class AdvCounter extends Observable {
     this.mincls = mincls;
     this.hpcls = hpcls;
 
-    document.querySelector(id).addEventListener("click", (event) =>
-      this.decrement().animate(event).glow(event)
-    );
+    document.querySelector(id).addEventListener("click", (event) => this.decrement());
 
     this.displayHp();
 
@@ -42,34 +40,41 @@ export default class AdvCounter extends Observable {
       new EventEnd();
     } else {
       this.displayHp();
+      this.animateBlobCount(this.rate);
     }
 
     return this;
   }
 
-  animate(event) {
+  animateBlobCount(bonus) {
 
-    const clickEffect = document.createElement("div");
-    
-    clickEffect.classList.add(this.mincls);
-    clickEffect.textContent = NumberFormatter.format(this.rate);
-    clickEffect.style.left = event.clientX + 15 + "px";
-    clickEffect.style.top = event.clientY + 15 + "px";
-
-    document.body.appendChild(clickEffect);
-
-    let distance = event.clientY;
-    
+    const blobCount = document.getElementById("adv_count");
+  
+    const elementTop = blobCount.offsetTop;
+    const elementLeft = blobCount.offsetLeft;
+    const positionTop = elementTop - 10;
+  
+    const displayElement = document.createElement("div");
+    displayElement.textContent = '- ' + NumberFormatter.format(bonus);
+    displayElement.style.position = "absolute";
+    displayElement.style.top = positionTop + "px";
+    displayElement.style.left = (elementLeft + 100)+ "px";
+    displayElement.style.color = 'red';
+    document.body.appendChild(displayElement);
+  
+    let distance = positionTop;
+  
     const animationInterval = setInterval(() => {
-      distance -= 3;
-      clickEffect.style.top = distance + "px";
-      if (distance < event.clientY - 50) {
-        clearInterval(animationInterval);
-        document.body.removeChild(clickEffect);
-      }
-    }, 20);
 
-    return this;
+      distance -= 3;
+      displayElement.style.top = distance + "px";
+
+      if (distance < positionTop - 40) {
+        clearInterval(animationInterval);
+        document.body.removeChild(displayElement);
+      }
+
+    }, 20);
   }
 
   glow(event) {

@@ -5,8 +5,13 @@ export default class Modal {
       this.body = body;
       this.id = modalId;
       this.modal = document.getElementById(this.id);
+      this.interval = null;
      
       
+    }
+
+    ivl(ivl) {
+      this.interval = ivl;
     }
   
     open() {
@@ -30,6 +35,7 @@ export default class Modal {
   
     close() {
       this.modal.style.display = "none";
+      clearInterval(this.interval);
     }
   
     closeOutside(event) {

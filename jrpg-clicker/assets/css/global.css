@@ -17,7 +17,7 @@ body {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  background-image: url(../img/background.jpeg) !important;
+  background-image: url(../img/back/body.jpg) !important;
   background-size: cover;
   background-attachment: fixed;
 }
@@ -34,28 +34,42 @@ p {
   margin: 0;
 }
 
+button {
+  padding: 10px 20px;
+  border: none;
+  transition: transform 0.3s;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
 .block {
   margin-bottom: 20px;
 }
 
+
+.battle-result {
+  background-color: #00000093;
+}
 .blob-menu {
-  background-color: rgba(216, 249, 253, 0.904);
-  border-radius: 5px;
+  background-color: rgba(0, 0, 0);
 }
 
 .blob-menu-header {
-  background-color: rgba(255, 196, 0, 0.904);
-  border-radius: 5px;
+  background-color: black;
   padding: 10px;
   height: 20px;
+  color: white;
+  font-size: 15px;
 }
 
 .blob-menu-item {
   display: flex;
   justify-content: space-between;
-  border-radius: 5px;
   cursor: pointer;
   padding: 20px;
+  color: white;
 }
 
 .blob-menu-item img{
@@ -63,7 +77,7 @@ p {
 }
 
 .blob-menu-item:hover {
-  background-color: aqua;
+  background-color: rgba(255, 230, 0, 0.425);
 }
 
 .blob-container {
@@ -75,45 +89,47 @@ p {
 
 .content {
   width: 100%;
-  flex-basis: 60%;
-  margin-left: 10px;
-  margin-right: 10px;
 }
 
 .blob-body {
-  display : flex;
+  background: url('../img/back/hero-back.jpg'); 
+
+  background-repeat: repeat-x;
+  animation: slideleft 6000s infinite linear;
+  height: 200px;
+  display: flex;
+
 }
 
-.blob-body .content-options {
-  flex-basis: 20%;
+.blob-body .hero-statistic {
+  font-size: 15px;
+  flex-basis: 25%; 
+
 }
 
-.content-options button {
-  margin: 10px;
+.content-hero {
+  flex-basis: 75%; 
 }
 
-.blob-body .content-hero {
-  flex-basis: 80%;  
-}
-
-.right-sidebar {
-  flex-basis: 40%;
-  margin-left: 10px;
-}
-
-@media screen and (max-width: 900px) {
-  .blob-container {
-    flex-wrap: wrap;
-    padding: 20px;
+@media screen and (min-width: 900px) {
+  .content {
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
   }
+}
 
-  .content,
-  .right-sidebar {
-    flex-basis: 100%;
-    margin-left: 0;
-    margin-right: 0;
-    margin-bottom: 10px;
-  }
+.blob-body .hero-statistic ul{
+  color: white;
+  background-color: rgba(0, 0, 0, 0.747);
+  height: 100%;  
+  margin: 0;
+  
+}
+
+.blob-body .hero-statistic ul li {
+  padding : 10px;
+
 }
 
 li {
@@ -125,24 +141,42 @@ li {
 .blob {
   text-align: center;
   height: 200px;
+ 
+}
+
+#blob-clicker { 
+  border: 3px solid black; 
+  box-shadow: 5px 10px 18px rgba(46, 45, 45, 0.452);
+}
+
+#map-container {
+  border: 3px solid black;
+  box-shadow: 5px 10px 18px rgba(46, 45, 45, 0.452);
+}
+
+#modal-content {
+  border: 3px solid black;
+  box-shadow: 5px 10px 18px rgba(46, 45, 45, 0.452);
 }
 
 .blob img {
-  width: 80px;
-  height: 80px;
-  margin-top: 75px;
+  height: 130px;
+  margin-top: 45px;
   vertical-align: middle;
-}
-
-.blob img:hover {
-  width: 85px;
-  height: 85px;
   cursor: pointer;
 }
 
+.blob img:hover {
+  height: 132px;
+}
+
 .blob img:active {
-  width: 90px;
-  height: 90px;
+  height: 135px;  
+}
+
+@keyframes slideleft {
+  from { background-position: 0%; }
+  to { background-position: 90000%; }
 }
 
 .adv img {
@@ -257,7 +291,7 @@ li {
 }
 
 .fade-in-animation {
-  animation: fade-in 2s;
+  animation: fade-in 1s;
 }
 
 .event-end-result {
@@ -277,12 +311,9 @@ li {
   text-shadow: 1px 1px 2px black, 0 0 1em black, 0 0 0.2em black;
 }
 
+
 #clicker-element #blob-clicker {
-  background-image: url(../img/background.png) !important;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  border-radius: 5px;
+  background-color: black;
 }
 
 #blob-level { 
@@ -294,19 +325,19 @@ li {
 }
 
 .adv-container {
+
   height: 200px; 
-  background-image: url(../img/background.png);
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
   text-align: center; 
-  border-radius: 5px;
+  background-image: url(../img/back/battle.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 button {
   border: none;
   background-color: #FC0;
-  font-size: 20px;
+  font-size: 15px;
   padding: 5px;
   font-family: 'GameBody'; 
 }
@@ -314,4 +345,23 @@ button {
 #close-map {
   float: right;
   cursor: pointer;
+}
+
+.white-background {
+  background-color: white;
+}
+
+#hero-statistics li{
+  margin-bottom: 1px;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  background-color: #000;
+  color: #fff;
+  position: absolute; 
+  z-index: 99;
+  padding: 10px;
+  font-size: 15px;
+
 }

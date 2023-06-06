@@ -3,36 +3,34 @@ import Config from "./resource/Config.js";
 import Display from "./tool/Display.js";
 import NumberFormatter from "./tool/NumberFormatter.js";
 import Observable from "./tool/Observable.js";
+import Blob from "./Blob.js";
 
-export default class Shop extends Observable{
+export default class Shop extends Observable {
     static load(id = 'blob-shop', onlyItems = false) {
-         
-        setInterval(()=> {
-            document.getElementById(id).innerHTML = '';
-            if(onlyItems === false) {
-                document.getElementById(id).innerHTML = `
-                    <div class="blob-menu-header"> Shop </div>
-                `
-            }
-            
-            const save = GameSave.getSave();
-            
-            let shopItems = save.shop;
-    
-            if (shopItems.length < 1) {
-                save.shop = this.getDefaultShopItems();
-                GameSave.setSave(save);
-                shopItems = save.shop;
-            }
-            
-            shopItems.forEach((item) => { 
-                if(this.canBuy(item.price)) {
-                    this.line(item, id);
-                }
-            });
 
-        }, 500);
-       
+        document.getElementById(id).innerHTML = '';
+        if (onlyItems === false) {
+            document.getElementById(id).innerHTML = `
+                <div class="blob-menu-header"> Shop </div>
+            `
+        }
+
+        const save = GameSave.getSave();
+
+        let shopItems = save.shop;
+
+        if (shopItems.length < 1) {
+            save.shop = this.getDefaultShopItems();
+            GameSave.setSave(save);
+            shopItems = save.shop;
+        }
+
+        shopItems.forEach((item) => {
+            if (this.canBuy(item.price)) { 
+                this.line(item, id);
+            }
+        });
+
     }
 
     static canBuy(price) {
@@ -53,40 +51,43 @@ export default class Shop extends Observable{
     }
 
     static click(event) {
-        const li = event.target.closest('div'); 
 
-        if (li) {
+        let li = event.target.closest('div.blob-menu-item');
 
-            // get item from li dataset
-            const item = JSON.parse(li.dataset.value);
+        // get item from li dataset
+        const item = JSON.parse(li.dataset.value);
 
-            if (this.canBuy(item.price)) {
+        if (this.canBuy(item.price)) {
 
-                // Increment
-                item.nb++;
+            // Increment
+            item.nb++;
 
-                // Decrement clicks
-                GameSave.setClicks(parseFloat(GameSave.getClicks()) - parseFloat(item.price));
-                
-                // create new price
-                item.price *= GameSave.getSave().difficulty;
+            // Decrement clicks
+            GameSave.setClicks(parseFloat(GameSave.getClicks()) - parseFloat(item.price));
 
-                // Save on li dataset
-                li.dataset.value = JSON.stringify(item);
+            // create new price
+            item.price *= GameSave.getSave().difficulty;
 
-                // Save on cookies
-                this.increment(item.name, item.price);
+            // Save on li dataset
+            li.dataset.value = JSON.stringify(item);
 
-                // Refresh view
-                li.querySelector('.shop-item-nb').textContent = NumberFormatter.format(item.nb);
-                li.querySelector('.shop-item-price').textContent = NumberFormatter.format(item.price);
+            // Save on cookies
+            this.increment(item.name, item.price);
 
-                // notify the view for click count change
-                Display.clickCount(Config.getBlobCountId(), GameSave.getClicks()); 
+            // Refresh view
+            li.querySelector('.shop-item-nb').textContent = NumberFormatter.format(item.nb);
+            li.querySelector('.shop-item-price').textContent = NumberFormatter.format(item.price);
 
-            }
+            // notify the view for click count change
+            Display.clickCount(Config.getBlobCountId(), GameSave.getClicks());
+
+            Blob.updateStatistics();
+
+            Shop.load('modal-shop', true);
 
         }
+
+
     }
 
     static line(item, id = 'blob-shop') {
@@ -113,7 +114,7 @@ export default class Shop extends Observable{
         vItemPrice.classList.add('shop-item-price');
         vItemPrice.textContent = NumberFormatter.format(item.price);
 
-        vItem.append(vItemImg, vItemNb, vItemPrice);  
+        vItem.append(vItemImg, vItemNb, vItemPrice);
 
         el.append(vItem);
     }
@@ -123,7 +124,7 @@ export default class Shop extends Observable{
             {
                 name: 'Silver Medal',
                 img: 'Ac_Medal02.png',
-                bonus: 1,
+                bonus: 0.1,
                 nb: 0,
                 price: 10
             },
@@ -131,34 +132,34 @@ export default class Shop extends Observable{
                 name: 'Gold Medal',
                 img: 'Ac_Medal01.png',
                 nb: 0,
-                bonus: 2,
+                bonus: 0.2,
                 price: 100
             },
             {
                 name: 'Cross Medal',
                 img: 'Ac_Medal03.png',
                 nb: 0,
-                bonus: 3,
+                bonus: 0.3,
                 price: 1000
             },
             {
                 name: 'Blue Medal',
                 img: 'Ac_Medal04.png',
-                bonus: 5,
+                bonus: 0.5,
                 nb: 0,
                 price: 2000
             },
             {
                 name: 'Red Necklace',
                 img: 'Ac_Necklace01.png',
-                bonus: 10,
+                bonus: 0.75,
                 nb: 0,
                 price: 3000
             },
             {
                 name: 'Blue Necklace',
                 img: 'Ac_Necklace02.png',
-                bonus: 2,
+                bonus: 0.85,
                 nb: 0,
                 price: 5000
             }

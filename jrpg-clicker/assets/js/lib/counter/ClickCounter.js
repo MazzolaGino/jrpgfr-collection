@@ -14,8 +14,6 @@ export default class ClickCounter extends Observable {
     this.cls = cls;
     this.mincls = mincls;
     this.updateCountElement = updateCountElement;
-
-    this.animatedElement.addEventListener("click", this.animate.bind(this));
     this.animatedElement.addEventListener("click", this.glow.bind(this));
 
   }
@@ -35,6 +33,7 @@ export default class ClickCounter extends Observable {
     console.log(lm.calculateClickRate());
     _.setClicks(parseFloat(_.getClicks()) + parseFloat(lm.calculateClickRate()));
     Display.clickCount(this.updateCountElement, _.getClicks());
+    this.animateBlobCount(lm.calculateClickRate());
   }
 
   updateClicks() {
@@ -45,29 +44,39 @@ export default class ClickCounter extends Observable {
     return NumberFormatter.format(number);
   }
 
-  animate(event) {
 
-    const clickEffect = document.createElement("div");
-    let lm = new LevelManagement();
-    clickEffect.classList.add(this.mincls);
-    clickEffect.textContent = NumberFormatter.format(lm.calculateClickRate());
-    clickEffect.style.left = event.clientX + 15 + "px";
-    clickEffect.style.top = event.clientY + 15 + "px";
+  animateBlobCount(bonus) {
 
-    document.body.appendChild(clickEffect);
-
-    let distance = event.clientY;
-
+    const blobCount = document.getElementById("blob_count");
+  
+    const elementTop = blobCount.offsetTop;
+    const elementLeft = blobCount.offsetLeft;
+    const positionTop = elementTop - 10;
+  
+    const displayElement = document.createElement("div");
+    displayElement.textContent = '+ ' + NumberFormatter.format(bonus);
+    displayElement.style.position = "absolute";
+    displayElement.style.top = positionTop + "px";
+    displayElement.style.left = (elementLeft + 100)+ "px";
+    displayElement.style.color = 'green';
+    document.body.appendChild(displayElement);
+  
+    let distance = positionTop;
+  
     const animationInterval = setInterval(() => {
-      distance -= 3;
-      clickEffect.style.top = distance + "px";
-      if (distance < event.clientY - 50) {
-        clearInterval(animationInterval);
-        document.body.removeChild(clickEffect);
-      }
-    }, 20);
 
+      distance -= 3;
+      displayElement.style.top = distance + "px";
+
+      if (distance < positionTop - 40) {
+        clearInterval(animationInterval);
+        document.body.removeChild(displayElement);
+      }
+
+    }, 20);
   }
+
+
 
   glow(event) {
 

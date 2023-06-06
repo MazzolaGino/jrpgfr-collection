@@ -16,14 +16,12 @@ export default class Map extends BaseMap {
       {x: 8, y: 6, value: 'Sacred Forest'},
       {x: 6, y: 13, value: 'Mountain Dungeon'},
     ]);
-
-    this.loadCloseMap();
   }
 
   display() {
     document.getElementById(Config.getMapContainerId()).innerHTML = /* html */`
-    <div class="blob-menu-header"> Map <span id="map-location"></span><span id="close-map"> X </div>
-    <div class="grid-map-w1" id="grid-map"></div>
+    <div class="blob-menu-header fade-in-animation"> Map <span id="map-location"></span></div>
+    <div class="grid-map-w1 fade-in-animation" id="grid-map"></div>
     `;
   }
 }

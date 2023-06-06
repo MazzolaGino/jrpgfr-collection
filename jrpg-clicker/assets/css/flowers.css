@@ -10,10 +10,10 @@
 
   .plus-one {
     position: absolute;
-    color: #ffffff;
+    color: #ffd000 !important;
     font-size: 20px;
     margin-left: 30px;
-    font-family: 'GameBody';
+    font-family: 'GameBody'; 
  
   }
 

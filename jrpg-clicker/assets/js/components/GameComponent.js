@@ -16,10 +16,46 @@ export default class GameComponent {
         new AutoCounter();
         new Map();
         const blob = new Blob('blob-clicker', {
-            blob: '<img src="assets/img/hero.gif">'
+            blob: '<img src="assets/img/ezgif-4-cad90254ac.gif">'
         });
 
-        Display.blobLevel(Config.getLevelId(), GameSave.getSave().level); 
-        
+        Display.blobLevel(Config.getLevelId(), GameSave.getSave().level);
+
+      
+     
     }
+
+
+    moveDiv(divID) {
+        var div = document.getElementById(divID);
+
+        var offsetX = 0;
+        var offsetY = 0;
+        var isMouseDown = false;
+        
+        div.addEventListener('mousedown', function(e) {
+          offsetX = e.clientX - div.offsetLeft;
+          offsetY = e.clientY - div.offsetTop;
+          isMouseDown = true;
+          
+          // Désactive la sélection de texte pendant le déplacement de la div
+          div.style.userSelect = 'none';
+        });
+        
+        document.addEventListener('mousemove', function(e) {
+          if (isMouseDown) {
+            var x = e.clientX - offsetX;
+            var y = e.clientY - offsetY;
+            div.style.left = x + 'px';
+            div.style.top = y + 'px';
+          }
+        });
+        
+        document.addEventListener('mouseup', function() {
+          isMouseDown = false;
+          
+          // Réactive la sélection de texte une fois le déplacement terminé
+          div.style.userSelect = 'auto';
+        });
+      }
 }
