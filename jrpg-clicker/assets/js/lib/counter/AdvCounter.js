@@ -13,15 +13,26 @@ export default class AdvCounter extends Observable {
     let lm = new LevelManagement();
     this.hp = hp;
     this.rate = lm.calculateClickRate();
+    this.id = id;
 
     this.effectcls = effectcls;
     this.mincls = mincls;
     this.hpcls = hpcls;
+    this.autoB = null;
+    this.eventDecrement = (event) => this.decrement(event);
 
-    document.querySelector(id).addEventListener("click", (event) => this.decrement());
+    document.querySelector(this.id).addEventListener("click", this.eventDecrement.bind(this), true);
 
     this.displayHp();
 
+  }
+
+  autoBattle(){
+    if(!this.autoB) {
+      this.autoB = setInterval(() => {
+      document.querySelector(this.id).click();
+      }, 1000);
+    }
   }
 
   displayHp() {
@@ -32,14 +43,15 @@ export default class AdvCounter extends Observable {
     });
   }
 
-  decrement() {
-
+  decrement(event) {
     this.hp -= this.rate;
     if (this.hp <= 0) {
+      clearInterval(this.autoB);
       new EventEnd();
     } else {
       this.displayHp();
       this.animateBlobCount(this.rate);
+      this.glow(event);
     }
 
     return this;

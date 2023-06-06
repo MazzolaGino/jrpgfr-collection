@@ -39,6 +39,10 @@ button:active {
   transform: scale(0.95);
 }
 
+#auto-battle {
+  float: right; 
+}
+
 .block {
   margin-bottom: 20px;
 }
