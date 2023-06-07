@@ -44,7 +44,6 @@ export default class LevelManagement {
     }
 
     distributeRandomExperience() {
-
         let divider  = Math.floor(Math.random() * (5 - 1 + 1)) + 1;
         let gain = this.calculateClickRateCustom(this.getCurrentDungeonLevel())/divider;
         this.gainExperience(gain);

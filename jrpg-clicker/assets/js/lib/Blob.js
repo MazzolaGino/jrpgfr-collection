@@ -74,6 +74,8 @@ export default class Blob extends Base {
         new Tooltip('AutoClick', 'Auto Click value');
         new Tooltip('HeroGold', 'Your gold');
         new Tooltip('AutoBattle', 'Click to activate auto battle');
+
+        new Tooltip('Hildya', `📈 Exp. to next level ${NumberFormatter.format(lm.experience)}/${NumberFormatter.format(lm.calculateExperienceToNextLevel())}`); 
  
         
 
