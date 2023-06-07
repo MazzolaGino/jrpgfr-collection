@@ -47,6 +47,10 @@ button:active {
   margin-bottom: 20px;
 }
 
+.AutoBattle {
+  cursor: pointer;
+}
+
 .battle-result {
   background-color: #00000093;
   position: relative;
@@ -122,10 +126,6 @@ button:active {
   background-color: rgba(0, 0, 0, 0.747);
   height: 100%;
   margin: 0;
-}
-
-.blob-body .hero-statistic ul li {
-  padding: 10px;
 }
 
 li {
@@ -337,11 +337,18 @@ li {
 .adv-container {
   height: 200px;
   text-align: center;
-  background-image: url(../img/back/battle.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   display: flex;
+}
+
+.adv-container.SacredStone {
+    background-image: url(../img/back/SacredStone.jpg);
+}
+
+.adv-container.SacredForest {
+  background-image: url(../img/back/SacredForest.jpg);
 }
 
 #adv_character,
@@ -388,10 +395,10 @@ button {
 
 .tooltip-text {
   visibility: hidden;
-  background-color: #000;
-  color: #fff;
+  background-color: white;
+  color: black;
   position: absolute;
   z-index: 99;
-  padding: 10px;
-  font-size: 15px;
+  padding: 5px;
+  font-size: 12px;
 }

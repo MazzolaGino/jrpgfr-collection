@@ -6,6 +6,7 @@ import _ from "./game/GameSave.js";
 import LevelManagement from "./tool/LevelManager.js";
 import Tooltip from './tool/Tooltip.js';
 import NumberFormatter from "./tool/NumberFormatter.js";
+import AutoBattle from './tool/AutoBattle.js'
 
 export default class Blob extends Base {
     
@@ -25,15 +26,18 @@ export default class Blob extends Base {
 
         document.getElementById(this.id).innerHTML = /* html */ `
             
-            <div class="blob-menu-header">Hildya <span class="HeroGold"> <img class="icon" src="assets/img/icons/I_GoldCoin.png"><span id="${Config.getBlobCountId()}"></span></span></div>
+            <div class="blob-menu-header"><span class="Hildya">Hildya</span> <span class="HeroGold"> <img class="icon" src="assets/img/icons/I_GoldCoin.png"><span id="${Config.getBlobCountId()}"></span></span></div>
 
             <div class="blob-body">
                 <div class="blob content-hero" id="blob_character">${this.data.blob}</div>
                 <div class="hero-statistic" id="hero-statistics"></div>
             </div>
         `;
+    
 
         Blob.updateStatistics();
+        let lm = new LevelManagement();
+        new Tooltip('Hildya', `📈 Exp. to next level ${NumberFormatter.format(lm.experience)}/${NumberFormatter.format(lm.calculateExperienceToNextLevel())}`); 
     }
 
     blobClick() {
@@ -52,15 +56,25 @@ export default class Blob extends Base {
             <li id="${Config.getLevelId()}" class="levelTtp">🆙 ${lm.level}</li>
             <li class="clickRate">💥 ${NumberFormatter.format(lm.calculateClickRate())}</li>
             <li class="AutoClick">💫 ${NumberFormatter.format(lm.calculateAutoClick())}</li>
-            <li class="ExpNext">📈 ${NumberFormatter.format(lm.experience)} / ${NumberFormatter.format(lm.calculateExperienceToNextLevel())}</li>
-         
+            <li class="AutoBattle">🗡 Auto Battle</li>
         </ul>`;
+
+        document.querySelector('li.AutoBattle').addEventListener('click', () => {
+            if(AutoBattle.isStarted()) {
+                AutoBattle.stop();
+                document.querySelector('li.AutoBattle').innerHTML = '🗡 Auto Battle OFF';
+            }else{
+                AutoBattle.start();
+                document.querySelector('li.AutoBattle').innerHTML = '🗡 Auto Battle ON';
+            }
+        });
 
         new Tooltip('levelTtp', 'The Hero Level');
         new Tooltip('clickRate', 'Damage or Harvest value');
         new Tooltip('AutoClick', 'Auto Click value');
         new Tooltip('HeroGold', 'Your gold');
-        new Tooltip('ExpNext', 'Experience for next level');
+        new Tooltip('AutoBattle', 'Click to activate auto battle');
+ 
         
 
         

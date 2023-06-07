@@ -5,6 +5,7 @@ import LevelManagement from "./tool/LevelManager.js";
 import Display from "./tool/Display.js";
 import NumberFormatter from "./tool/NumberFormatter.js";
 import Blob from "./Blob.js";
+import AdvBackground from './tool/AdvBackground.js';
 
 export default class EventEnd {
 
@@ -47,7 +48,7 @@ export default class EventEnd {
             <div class="blob-menu-header fight-start-animation">
                 Battle End Result!  
             </div>
-            <div class="adv-container event-end-result">
+            <div class="adv-container event-end-result ${AdvBackground.get()}">
                 <div class="adv-hero"><img src="assets/img/isa-deu-jumpinganim700.gif" /></div>
                 <div class="battle-result">
                     <p class="fight-start-animation">${this.levelUp}</p>

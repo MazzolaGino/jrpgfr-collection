@@ -10,6 +10,7 @@
 #map-container {
   background-color: black;
 }
+
 .grid-map-liberty-town {
   background: url(../img/zone/LibertyTown.jpg) !important;
   background-size: cover !important;
@@ -22,6 +23,14 @@
   background-position: center  !important;
   background-repeat: no-repeat !important; 
 }
+
+.grid-map-sacred-forest {
+  background: url(../img/zone/SacredForest.jpg) !important;
+  background-size: contain  !important;
+  background-position: center  !important;
+  background-repeat: no-repeat !important; 
+}
+
 
 
 .grid-map-row {

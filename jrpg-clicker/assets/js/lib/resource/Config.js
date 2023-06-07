@@ -34,6 +34,13 @@ export default class Config {
         }
     }
 
+    static getSacredForest(){
+        return {
+            id: 'SacredForest',
+            name: 'Sacred Forest Dungeon'
+        }
+    }
+
     static getMapContainerId() {
         return 'map-container';
     }

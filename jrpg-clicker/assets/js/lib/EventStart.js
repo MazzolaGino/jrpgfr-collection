@@ -1,5 +1,6 @@
 import Config from "./resource/Config.js";
 import Encounters from "./resource/Encounters.js";
+import AdvBackground from './tool/AdvBackground.js';
 
 export default class EventStart {
 
@@ -30,7 +31,7 @@ export default class EventStart {
             <div class="blob-menu-header fight-start-animation">
                 New ${this.eventName}! 
             </div>
-            <div class="adv-container">            
+            <div class="adv-container  ${AdvBackground.get()}">            
                 ${this.eventBody}
             </div>
         `;

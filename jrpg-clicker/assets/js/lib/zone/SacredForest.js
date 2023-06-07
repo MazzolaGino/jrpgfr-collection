@@ -6,37 +6,40 @@ import LevelManagement from "../tool/LevelManager.js";
 import AdvBackground from "../tool/AdvBackground.js";
 
 
-export default class SacredStone extends BaseMap {
-    constructor() {
-        super();
+export default class SacredForest extends BaseMap {
 
-        this.level = 3;
+    constructor() {
+
+        super();
+        this.level = 5;
         this.exit = 'Exit Dungeon';
         this.eventStart = null;
         this.lm = new LevelManagement();
         this.lm.setCurrentDungeonLevel(this.level);
-        AdvBackground.set(Config.getSacredStone().id);
-    }
-    display() {
 
+        AdvBackground.set(Config.getSacredForest().id);
+        
+    }
+
+    display() {
         
         document.getElementById(Config.getMapContainerId()).innerHTML = /* html */ `
-            <div class="blob-menu-header fade-in-animation"> Map - ${Config.getSacredStone().name} <span id="map-location"></span></div>
-            <div class="grid-map-sacred-stone fade-in-animation" id="grid-map"></div>
+            <div class="blob-menu-header fade-in-animation"> Map - ${Config.getSacredForest().name} <span id="map-location"></span></div>
+            <div class="grid-map-sacred-forest fade-in-animation" id="grid-map"></div>
         `;
-        
+
         this.eventStart = Encounters.generateStart(this.level); /* dungeon lvl */
 
         this.createGrid(30, 40, [
-            { x: 5, y: 18, value: this.exit, action: (event) => {
+            { x: 2, y: 9, value: this.exit, action: (event) => {
                 this.lm.resetCurrentDungeonLevel();
                 this.eventStart.stop();
                 new Map();
                
             }},
-            { x: 5, y: 19, value: this.exit, action: (event) => {
+            { x: 2, y: 10, value: this.exit, action: (event) => {
                 this.lm.resetCurrentDungeonLevel();
-                this.eventStart.stop();
+                this.eventStart.stop(); 
                 new Map();
             }},
         ]);

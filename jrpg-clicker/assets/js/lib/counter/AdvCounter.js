@@ -3,6 +3,7 @@ import NumberFormatter from "../tool/NumberFormatter.js";
 import Observable from "../tool/Observable.js";
 import EventEnd from "../EventEnd.js";
 import LevelManagement from "../tool/LevelManager.js";
+import AutoBattle from "../tool/AutoBattle.js";
 
 export default class AdvCounter extends Observable {
 
@@ -18,7 +19,7 @@ export default class AdvCounter extends Observable {
     this.effectcls = effectcls;
     this.mincls = mincls;
     this.hpcls = hpcls;
-    this.autoB = null;
+    this.autoB = false;
     this.eventDecrement = (event) => this.decrement(event);
 
     document.querySelector(this.id).addEventListener("click", this.eventDecrement.bind(this), true);
@@ -26,15 +27,7 @@ export default class AdvCounter extends Observable {
     this.displayHp();
 
   }
-
-  autoBattle(){
-    if(!this.autoB) {
-      this.autoB = setInterval(() => {
-      document.querySelector(this.id).click();
-      }, 1000);
-    }
-  }
-
+  
   displayHp() {
     this.notify({
       type: Events.getDisplayClicks(),
@@ -46,35 +39,34 @@ export default class AdvCounter extends Observable {
   decrement(event) {
     this.hp -= this.rate;
     if (this.hp <= 0) {
-      clearInterval(this.autoB);
       new EventEnd();
     } else {
       this.displayHp();
       this.animateBlobCount(this.rate);
       this.glow(event);
     }
-
+    
     return this;
   }
 
   animateBlobCount(bonus) {
 
     const blobCount = document.getElementById("adv_count");
-  
+
     const elementTop = blobCount.offsetTop;
     const elementLeft = blobCount.offsetLeft;
     const positionTop = elementTop - 10;
-  
+
     const displayElement = document.createElement("div");
     displayElement.textContent = '- ' + NumberFormatter.format(bonus);
     displayElement.style.position = "absolute";
     displayElement.style.top = positionTop + "px";
-    displayElement.style.left = (elementLeft + 100)+ "px";
+    displayElement.style.left = (elementLeft + 100) + "px";
     displayElement.style.color = 'red';
     document.body.appendChild(displayElement);
-  
+
     let distance = positionTop;
-  
+
     const animationInterval = setInterval(() => {
 
       distance -= 3;

@@ -45,26 +45,16 @@ export default class LevelManagement {
 
     distributeRandomExperience() {
 
-        const minExperience = Math.floor(this.experienceToNextLevel * 0.1);
-        const maxExperience = Math.floor(this.experienceToNextLevel * 0.3);
-
-        let randomExperience = Math.floor(Math.random() * (maxExperience - minExperience + 1)) + minExperience;
-
-        if (this.getCurrentDungeonLevel()) {
-            const customExperience = this.calculateExperienceToNextLevelCustom(this.getCurrentDungeonLevel());
-            randomExperience = Math.floor(customExperience * 0.1) + Math.floor(Math.random() * (customExperience * 0.2 + 1));
-        }
-        
-        const gainedExperience = randomExperience / 2;
-        this.gainExperience(gainedExperience);
-
-        return gainedExperience;
+        let divider  = Math.floor(Math.random() * (5 - 1 + 1)) + 1;
+        let gain = this.calculateClickRateCustom(this.getCurrentDungeonLevel())/divider;
+        this.gainExperience(gain);
+        return gain;
     }
 
     distributeRandomHp() {
-        const minHp = Math.floor(this.experienceToNextLevel * 0.1);
-        const maxHp = Math.floor(this.experienceToNextLevel * 0.3);
-        return Math.floor(Math.random() * (maxHp - minHp + 1)) + minHp;
+
+        let divider  = Math.floor(Math.random() * (10 - 5 + 1)) + 5;
+        return this.calculateClickRateCustom(this.getCurrentDungeonLevel()) * divider;
     }
 
     distributeRandomMonster() {
@@ -74,6 +64,17 @@ export default class LevelManagement {
     calculateClickRate() {
         let autoClickValue = 0;
         const clickRate = Math.floor(this.difficulty * Math.pow(this.difficulty, this.level)) / 2;
+
+        _.getSave().weapon_shop.forEach(item => {
+            autoClickValue += parseFloat(clickRate * item.nb * item.bonus);
+        });
+
+        return clickRate + autoClickValue;
+    }
+
+    calculateClickRateCustom(level) {
+        let autoClickValue = 0;
+        const clickRate = Math.floor(this.difficulty * Math.pow(this.difficulty, level)) / 2;
 
         _.getSave().weapon_shop.forEach(item => {
             autoClickValue += parseFloat(clickRate * item.nb * item.bonus);
