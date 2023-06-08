@@ -28,6 +28,7 @@ export default class EventEnd {
         save.exp = lm.experience;
         save.exp_next_level = lm.experienceToNextLevel;
         save.clicks = _.getClicks() + parseFloat(this.blob);
+        save.adv_killed = parseInt(save.adv_killed) + 1; 
 
         Display.clickCount(Config.getBlobCountId(), save.clicks);
         Display.blobLevel(Config.getLevelId(), lm.level);

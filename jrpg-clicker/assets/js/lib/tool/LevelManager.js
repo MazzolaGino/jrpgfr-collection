@@ -14,6 +14,18 @@ export default class LevelManagement {
         this.experienceToNextLevel = this.calculateExperienceToNextLevel();
     }
 
+    generateRandomNumber(min, max) {
+        // Vérification des paramètres
+        if (min > max) {
+          throw new Error("La valeur minimale ne peut pas être supérieure à la valeur maximale.");
+        }
+      
+        // Calcul du nombre aléatoire
+        const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+      
+        return randomNumber;
+      }
+
     setCurrentDungeonLevel(level) {
         const save = _.getSave();
         save.current_dungeon_level = level;
@@ -44,16 +56,14 @@ export default class LevelManagement {
     }
 
     distributeRandomExperience() {
-        let divider  = Math.floor(Math.random() * (5 - 1 + 1)) + 1;
-        let gain = this.calculateClickRateCustom(this.getCurrentDungeonLevel())/divider;
+        let divider  = this.generateRandomNumber(15, 20);
+        let gain = this.calculateExperienceToNextLevelCustom(this.getCurrentDungeonLevel())/divider;
         this.gainExperience(gain);
         return gain;
     }
 
     distributeRandomHp() {
-
-        let divider  = Math.floor(Math.random() * (10 - 5 + 1)) + 5;
-        return this.calculateClickRateCustom(this.getCurrentDungeonLevel()) * divider;
+        return this.distributeRandomExperience() * 2;
     }
 
     distributeRandomMonster() {

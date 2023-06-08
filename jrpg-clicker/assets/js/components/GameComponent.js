@@ -1,10 +1,10 @@
-import Sidebar from "../lib/Sidebar.js";
 import Blob from "../lib/Blob.js";
 import GameSave from "../lib/game/GameSave.js";
 import AutoCounter from "../lib/counter/AutoCounter.js";
 import Display from "../lib/tool/Display.js";
 import Config from "../lib/resource/Config.js";
 import Map from "../lib/Map.js";
+import Menu from "../lib/game/Menu.js";
 
 export default class GameComponent {
 
@@ -28,6 +28,8 @@ export default class GameComponent {
             document.getElementById('modal-weapon-shop').innerHTML = 'No weapon available for purchase';
           }
         }, 500);
+
+        let menu = new Menu();
       
      
     }

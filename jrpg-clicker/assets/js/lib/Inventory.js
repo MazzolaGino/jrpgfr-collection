@@ -2,6 +2,10 @@ import GameSave from "./game/GameSave.js";
 
 export default class Inventory {
 
+    static add(item) {
+        GameSave.setInventoryItem(item);
+    }
+
     static line(item) {
 
         const lastIndex = item.name.lastIndexOf("_");

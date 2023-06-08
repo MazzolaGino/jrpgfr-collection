@@ -9,11 +9,145 @@ export default class Drops {
         this.loadTypes();
     }
 
+    getRandomIndex(array) {
+        if (!Array.isArray(array) || array.length === 0) {
+            return -1;
+        }
+
+        return Math.floor(Math.random() * array.length);
+    }
+
+    generateLoot() {
+
+        let loots = [
+
+            {
+                "name": "Agate",
+                "url": "assets/img/icons/I_Agate.png",
+                "type": "Resource"
+            },
+            {
+                "name": "Amethyst",
+                "url": "assets/img/icons/I_Amethist.png",
+                "type": "Resource"
+            },
+            {
+                "name": "Bat Wing",
+                "url": "assets/img/icons/I_BatWing.png",
+                "type": "Resource"
+            },
+            {
+                "name": "Birds Beak",
+                "url": "assets/img/icons/I_BirdsBeak.png",
+                "type": "Resource"
+            },
+            {
+                "name": "Bone",
+                "url": "assets/img/icons/I_Bone.png",
+                "type": "Resource"
+            },
+            {
+                "name": "Bottle",
+                "url": "assets/img/icons/I_Bottle01.png",
+                "type": "Resource"
+            },
+            {
+                "name": "Crystal",
+                "url": "assets/img/icons/I_Crystal01.png",
+                "type": "Resource"
+            },
+            {
+                "name": "Bread",
+                "url": "assets/img/icons/I_C_Bread.png",
+                "type": "Resource"
+            },
+            {
+                "name": "Lemon",
+                "url": "assets/img/icons/I_C_Lemon.png",
+                "type": "Resource"
+            },
+            {
+                "name": "Meat",
+                "url": "assets/img/icons/I_C_Meat.png",
+                "type": "Resource"
+            },
+            {
+                "name": "Diamond",
+                "url": "assets/img/icons/I_Diamond.png",
+                "type": "Resource"
+            },
+            {
+                "name": "Eye",
+                "url": "assets/img/icons/I_Eye.png",
+                "type": "Resource"
+            },
+            {
+                "name": "Fabric",
+                "url": "assets/img/icons/I_Fabric.png",
+                "type": "Resource"
+            },
+            {
+                "name": "Fang",
+                "url": "assets/img/icons/I_Fang.png",
+                "type": "Resource"
+            },
+            {
+                "name": "Feather",
+                "url": "assets/img/icons/I_Feather01.png",
+                "type": "Resource"
+            },
+            {
+                "name": "Fox Tail",
+                "url": "assets/img/icons/I_FoxTail.png",
+                "type": "Resource"
+            },
+            {
+                "name": "Key",
+                "url": "assets/img/icons/I_Key01.png",
+                "type": "Resource"
+            },
+            {
+                "name": "Rock",
+                "url": "assets/img/icons/I_Rock01.png",
+                "type": "Resource"
+            },
+            {
+                "name": "Sapphire",
+                "url": "assets/img/icons/I_Sapphire.png",
+                "type": "Resource"
+            },
+            {
+                "name": "Tentacle",
+                "url": "assets/img/icons/I_Tentacle.png",
+                "type": "Resource"
+            },
+            {
+                "name": "Torch",
+                "url": "assets/img/icons/I_Torch02.png",
+                "type": "Resource"
+            },
+            {
+                "name": "Water",
+                "url": "assets/img/icons/I_Water.png",
+                "type": "Resource"
+            },
+            {
+                "name": "Wolf Fur",
+                "url": "assets/img/icons/I_WolfFur.png",
+                "type": "Resource"
+            }
+        ];
+
+        return loots[this.getRandomIndex(loots)];
+    }
+
     generate(type) {
+        let item = this.getElement(type)[Math.floor(Math.random() * this.getElement(type).length)];
 
         return {
             type: this.types[type],
-            name: this.getElement(type)[Math.floor(Math.random() * this.getElement(type).length)]
+            url: item,
+            name: item.replace('I_', '').replace('.png', '')
         };
     }
 
@@ -24,15 +158,8 @@ export default class Drops {
 
     loadTypes() {
         this.types = {
-            'Ac': 'Accessory',
-            'A': 'Armor',
-            'C': 'Head',
-            'E': 'Resource',
-            'I': 'Item',
-            'IC': 'Food',
+            'I': 'Resource',
             'P': 'Potion',
-            'S': 'Skill',
-            'W': 'Weapon'
         };
     }
 

@@ -31,6 +31,7 @@ export default class BaseMap {
       for (var j = 0; j < numCols; j++) {
 
         var cell = document.createElement("span");
+        
         cell.className = `grid-map-cell`;
         cell.dataset.value = '';
 
@@ -42,6 +43,13 @@ export default class BaseMap {
 
             cell.classList.add('path');
 
+            if(action.type && action.type === 'loot') {
+              cell.style.background = 'url(assets/img/icons/I_Chest01.png)';
+              cell.style.backgroundSize = 'cover';
+              cell.style.backgroundPosition = 'center';
+              cell.classList.remove('path');
+            }
+
             if (action.zone) {
               cell.addEventListener('click', (event) => action.zone(event));
             }
@@ -51,7 +59,7 @@ export default class BaseMap {
             }
 
             if(action.img) {
-              cell.style.backgroundImage = 'url(assets/img/ezgif-4-cad90254ac.gif)';
+              cell.style.backgroundImage = 'url(assets/img/I_Chest01.png)';
               cell.style.backgroundSize = 'cover';
               cell.style.backgroundPosition = 'center';
             }

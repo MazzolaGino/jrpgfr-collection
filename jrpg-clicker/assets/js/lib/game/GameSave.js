@@ -15,9 +15,13 @@ export default class GameSave {
             click_rate: 0.01,
             level: 1,
             exp: 0.0,
-            exp_to_level_base: 25,
-            exp_next_level: 25,
+            exp_to_level_base: 100,
+            exp_next_level: 100,
             adv_base: [10, 30],
+            adv_killed: 0,
+            quests_done: 0,
+            achievements_done: 0,
+            loot_acquired: 0,
             bonus: [],
             inventory: [],
             shop: [],
@@ -64,16 +68,34 @@ export default class GameSave {
         this.setSave(save);
     }
 
+    static getInventory() {
+        return this.getSave().inventory;
+    }
+
     static setInventoryItem(item) {
+
         let save = this.getSave();
 
         if (!save.inventory) {
             save.inventory = [];
         }
 
-        save.inventory.push(item);
+        let sameItem = save.inventory.find((itm) => {
+            if(item.name === itm.name) {
+                itm.nb++;
+                return true;
+            }
+        });
+
+        if(!sameItem){
+            item.nb = 1;
+            save.inventory.push(item);
+        }
+
+        console.log(save.inventory);
 
         this.setSave(save);
+       
     }
 
     static setShopItem(item) {

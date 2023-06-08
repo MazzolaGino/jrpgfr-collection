@@ -8,33 +8,31 @@ import Blob from "./Blob.js";
 export default class WeaponShop extends Observable {
   static load(id = 'blob-weapon-shop', onlyItems = false) {
 
-      const element = document.getElementById(id);
-      element.innerHTML = '';
+    const element = document.getElementById(id);
+    element.innerHTML = '';
 
-      if (!onlyItems) {
-        element.innerHTML = `
+    if (!onlyItems) {
+      element.innerHTML = `
           <div class="blob-menu-header"> Weapon Shop </div>
         `;
+    }
+
+    const save = GameSave.getSave();
+
+    let weaponShopItems = save.weapon_shop;
+
+    if (weaponShopItems.length < 1) {
+
+      save.weapon_shop = this.getDefaultWeaponShopItems();
+      GameSave.setSave(save);
+      weaponShopItems = save.weapon_shop;
+    }
+
+    weaponShopItems.forEach((item) => {
+      if (this.canBuy(item.price)) {
+        this.line(item, id);
       }
-
-    
-
-      const save = GameSave.getSave();
-
-      let weaponShopItems = save.weapon_shop;
-
-      if (weaponShopItems.length < 1) {
-    
-        save.weapon_shop = this.getDefaultWeaponShopItems();
-        GameSave.setSave(save);
-        weaponShopItems = save.weapon_shop;
-      }
-
-      weaponShopItems.forEach((item) => {
-        if (this.canBuy(item.price)) {
-          this.line(item, id);
-        }
-      });
+    });
   }
 
   static canBuy(price) {
@@ -108,46 +106,18 @@ export default class WeaponShop extends Observable {
   static getDefaultWeaponShopItems() {
     return [
       {
-        name: 'Silver Medal',
-        img: 'Ac_Medal02.png',
-        bonus: 0.1,
+        name: 'Dagger',
+        img: 'W_Dagger001.png',
+        bonus: 5,
         nb: 0,
-        price: 10
-      },
-      {
-        name: 'Gold Medal',
-        img: 'Ac_Medal01.png',
-        nb: 0,
-        bonus: 0.2,
-        price: 100
-      },
-      {
-        name: 'Cross Medal',
-        img: 'Ac_Medal03.png',
-        nb: 0,
-        bonus: 0.3,
         price: 1000
       },
       {
-        name: 'Blue Medal',
-        img: 'Ac_Medal04.png',
-        bonus: 0.5,
+        name: 'Force Dagger',
+        img: 'W_Dagger002.png',
         nb: 0,
-        price: 2000
-      },
-      {
-        name: 'Red Necklace',
-        img: 'Ac_Necklace01.png',
-        bonus: 0.75,
-        nb: 0,
-        price: 3000
-      },
-      {
-        name: 'Blue Necklace',
-        img: 'Ac_Necklace02.png',
-        bonus: 0.85,
-        nb: 0,
-        price: 5000
+        bonus: 10,
+        price: 2500
       }
     ];
   }

@@ -25,9 +25,7 @@ export default class Blob extends Base {
     display() {
 
         document.getElementById(this.id).innerHTML = /* html */ `
-            
             <div class="blob-menu-header"><span class="Hildya">Hildya</span> <span class="HeroGold"> <img class="icon" src="assets/img/icons/I_GoldCoin.png"><span id="${Config.getBlobCountId()}"></span></span></div>
-
             <div class="blob-body">
                 <div class="blob content-hero" id="blob_character">${this.data.blob}</div>
                 <div class="hero-statistic" id="hero-statistics"></div>
@@ -47,17 +45,19 @@ export default class Blob extends Base {
     }
 
 
-    static updateStatistics() {
+    static updateStatistics(id = 'hero-statistics') {
         
         let lm = new LevelManagement();
 
-        document.getElementById('hero-statistics') .innerHTML = `
+        document.getElementById(id) .innerHTML = `
         <ul>
             <li id="${Config.getLevelId()}" class="levelTtp">🆙 ${lm.level}</li>
             <li class="clickRate">💥 ${NumberFormatter.format(lm.calculateClickRate())}</li>
             <li class="AutoClick">💫 ${NumberFormatter.format(lm.calculateAutoClick())}</li>
-            <li class="AutoBattle">🗡 Auto Battle</li>
+            <li class="AutoBattle">🗡 Auto Battle ON</li>
         </ul>`;
+
+        AutoBattle.start(); 
 
         document.querySelector('li.AutoBattle').addEventListener('click', () => {
             if(AutoBattle.isStarted()) {

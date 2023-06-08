@@ -18,7 +18,7 @@ class AutoBattle {
         if (document.querySelector('#adv_character img')) {
           document.querySelector('#adv_character img').click();
         }
-      }, 1000);
+      }, 500);
     }
   }
 
