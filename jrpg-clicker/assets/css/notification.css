@@ -2,7 +2,6 @@
     position: fixed;
     top: 5%;
     left: 50%;
-    transform: translate(-50%, -50%);
   }
   
   .notification {
@@ -12,4 +11,14 @@
     font-size: 16px;
     font-weight: bold;
     margin-bottom: 10px;
+    animation: fade-in 1s;
+  }
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
