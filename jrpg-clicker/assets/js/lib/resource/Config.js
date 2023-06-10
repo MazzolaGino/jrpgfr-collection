@@ -4,6 +4,10 @@ export default class Config {
         return 'blob_count';
     }
 
+    static getUseADungeonKey() {
+        return 'use_dungeon_key';
+    }
+
     static getAdvId() {
         return 'adv-clicker';
     }

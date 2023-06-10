@@ -5,15 +5,15 @@ import _ from '../game/GameSave.js'
 export default class Menu {
 
     constructor() {
-        document.getElementById('Statistics').addEventListener('click', this.statistics.bind(this));
-        document.getElementById('Quests').addEventListener('click', this.quests.bind(this));
-        document.getElementById('Achievements').addEventListener('click', this.achievements.bind(this));
-        document.getElementById('Inventory').addEventListener('click', this.inventory.bind(this));
-        document.getElementById('Monsters').addEventListener('click', this.monsters.bind(this));
-        document.getElementById('Save').addEventListener('click', this.save.bind(this));
-        document.getElementById('Load').addEventListener('click', this.load.bind(this));
-        document.getElementById('Reset').addEventListener('click', this.reset.bind(this));
-        document.getElementById('Credits').addEventListener('click', this.credits.bind(this));
+        document.getElementById('Statistics').addEventListener('mouseup', this.statistics.bind(this));
+        document.getElementById('Quests').addEventListener('mouseup', this.quests.bind(this));
+        document.getElementById('Achievements').addEventListener('mouseup', this.achievements.bind(this));
+        document.getElementById('Inventory').addEventListener('mouseup', this.inventory.bind(this));
+        document.getElementById('Monsters').addEventListener('mouseup', this.monsters.bind(this));
+        document.getElementById('Save').addEventListener('mouseup', this.save.bind(this));
+        document.getElementById('Load').addEventListener('mouseup', this.load.bind(this));
+        document.getElementById('Reset').addEventListener('mouseup', this.reset.bind(this));
+        document.getElementById('Credits').addEventListener('mouseup', this.credits.bind(this));
 
         
         this.modal = null;
@@ -63,7 +63,6 @@ export default class Menu {
         let inventory = _.getInventory();
         let displayInventory = '';
 
-        console.log(inventory);
         for(var index in inventory) {
             let number = (inventory[index].nb > 1) ? 'x ' + inventory[index].nb : '';
             displayInventory += /* html */ `<div class="inventory-item"><img src="${inventory[index].url}">${number}</div>`;

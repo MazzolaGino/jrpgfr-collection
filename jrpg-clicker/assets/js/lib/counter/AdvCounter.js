@@ -4,14 +4,16 @@ import Observable from "../tool/Observable.js";
 import EventEnd from "../EventEnd.js";
 import LevelManagement from "../tool/LevelManager.js";
 import AutoBattle from "../tool/AutoBattle.js";
+import DungeonManager from "../dungeon_system/DungeonManager.js";
 
 export default class AdvCounter extends Observable {
 
-  constructor(hp, id, hpcls, effectcls = 'min-effect', mincls = 'min-one') {
+  constructor(boss, hp, id, hpcls, effectcls = 'min-effect', mincls = 'min-one') {
 
     super();
-
+    
     let lm = new LevelManagement();
+    this.boss = boss;
     this.hp = hp;
     this.rate = lm.calculateClickRate();
     this.id = id;
@@ -37,9 +39,17 @@ export default class AdvCounter extends Observable {
   }
 
   decrement(event) {
+    
     this.hp -= this.rate;
+
     if (this.hp <= 0) {
+
+      if(this.boss === true) {
+        DungeonManager.getInstance().defeatBoss();
+      }
+      
       new EventEnd();
+    
     } else {
       this.displayHp();
       this.animateBlobCount(this.rate);

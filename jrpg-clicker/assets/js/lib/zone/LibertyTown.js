@@ -4,8 +4,7 @@ import Shop from "../Shop.js";
 import Modal from "../tool/Modal.js";
 import Map from "../Map.js";
 import WeaponShop from "../WeaponShop.js";
-import Drops from "../resource/Drops.js";
-import Inventory from "../Inventory.js";
+import Chest from "../tool/Chest.js";
 
 export default class LibertyTown extends BaseMap {
     constructor() {
@@ -19,7 +18,7 @@ export default class LibertyTown extends BaseMap {
         this.exit = 'Exit';
         this.modal = new Modal('modal', 'Item Shop', `<div id="modal-hero"><img src="assets/img/isa-deu-zoom-ugh.gif"></div><div id="modal-shop"></div>`);
         this.modalW = new Modal('modal', 'Weapon Shop', `<div id="modal-hero"><img src="assets/img/isa-deu-zoom-ugh.gif"></div><div id="modal-weapon-shop"></div>`);
-        this.chest = (Math.floor(Math.random() * 2) + 1) === 1 ? false : true;
+        this.chest = new Chest('liberty-town');
     }
 
 
@@ -75,17 +74,7 @@ export default class LibertyTown extends BaseMap {
     }
 
     dropChest() {
-        if(this.chest === false) {
-
-            this.chest = true;
-            let item = (new Drops()).generateLoot();
-            Inventory.add(item);
-            let chestModal = new Modal('modal', 'Chest', `<div id="modal-chest"> New item added to inventory : <img src="${item.url}" /> ${item.name} ! </div>`);
-            chestModal.open();
-        }else{
-            let chestModal = new Modal('modal', 'Chest', `<div id="modal-chest"> The chest is empty !`);
-            chestModal.open();
-        }
+        this.chest.drop();
     }
 
     weaponShopShow() {

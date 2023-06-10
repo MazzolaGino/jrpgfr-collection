@@ -5,10 +5,10 @@ import AdvBackground from "./tool/AdvBackground.js";
 
 export default class Adv extends Base {
 
-    constructor(id, data) {
+    constructor(id, data, boss = false) {
         super(id, data);
         this.display();
-        this.clicker = new AdvCounter(data.hp, '#adv_character img', 'adv_count');
+        this.clicker = new AdvCounter(boss, data.hp, '#adv_character img', 'adv_count');
         this.clicker.subscribe(new GameObserver()).displayHp();
     }
 

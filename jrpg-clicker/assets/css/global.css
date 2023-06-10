@@ -433,7 +433,7 @@ button {
   z-index: 99999; 
 }
 
-.menu li:hover .submenu {
+.menu li:active .submenu { 
   display: block;
 }
 

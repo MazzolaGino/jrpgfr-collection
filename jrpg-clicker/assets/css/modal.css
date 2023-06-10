@@ -93,6 +93,14 @@
     vertical-align: middle;
   }
 
+  #modal-chest .chest-item, #modal-chest .chest-timer {
+    padding: 20px;
+  }
+
+  .chest-timer {
+    color: gold;
+  }
+
 
 
   

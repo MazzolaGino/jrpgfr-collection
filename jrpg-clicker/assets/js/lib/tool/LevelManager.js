@@ -1,7 +1,5 @@
-import Blob from "../Blob.js";
 import _ from "../game/GameSave.js";
-import NumberFormatter from "./NumberFormatter.js";
-
+import DungeonManager from "../dungeon_system/DungeonManager.js";
 export default class LevelManagement {
     constructor() {
 
@@ -24,22 +22,10 @@ export default class LevelManagement {
         const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
       
         return randomNumber;
-      }
-
-    setCurrentDungeonLevel(level) {
-        const save = _.getSave();
-        save.current_dungeon_level = level;
-        _.setSave(save);
     }
 
     getCurrentDungeonLevel() {
-        return _.getSave().current_dungeon_level;
-    }
-
-    resetCurrentDungeonLevel() {
-        const save = _.getSave();
-        save.current_dungeon_level = null;
-        _.setSave(save);
+        return DungeonManager.getInstance().current.level;
     }
 
     gainExperience(amount) {
@@ -66,8 +52,16 @@ export default class LevelManagement {
         return this.distributeRandomExperience() * 2;
     }
 
+    distributeRandomBossHp() {
+        return this.distributeRandomExperience() * 20; 
+    }
+
     distributeRandomMonster() {
         return Math.floor(Math.random() * 63) + 1;
+    }
+
+    distributeRandomBoss() {
+        return Math.floor(Math.random() * 10) + 1;
     }
 
     calculateClickRate() {
@@ -81,9 +75,9 @@ export default class LevelManagement {
         return clickRate + autoClickValue;
     }
 
-    calculateClickRateCustom(level) {
+    calculateClickRateCustom() {
         let autoClickValue = 0;
-        const clickRate = Math.floor(this.difficulty * Math.pow(this.difficulty, level)) / 2;
+        const clickRate = Math.floor(this.difficulty * Math.pow(this.difficulty, this.getCurrentDungeonLevel())) / 2;
 
         _.getSave().weapon_shop.forEach(item => {
             autoClickValue += parseFloat(clickRate * item.nb * item.bonus);
@@ -107,7 +101,7 @@ export default class LevelManagement {
         return Math.floor(this.base * Math.pow(this.difficulty, this.level));
     }
 
-    calculateExperienceToNextLevelCustom(level) {
-        return Math.floor(this.base * Math.pow(this.difficulty, level));
+    calculateExperienceToNextLevelCustom() {
+        return Math.floor(this.base * Math.pow(this.difficulty, this.getCurrentDungeonLevel()));
     }
 }

@@ -29,6 +29,12 @@ export default class GameSave {
         }), 1000);
     }
 
+    static incrementLoot() {
+        let save = JSON.parse(CookieManager.getCookie('game'));
+        save.loot_acquired++;
+        this.setSave(save);
+    }
+
     static getSave() {
         return JSON.parse(CookieManager.getCookie('game'));
     }

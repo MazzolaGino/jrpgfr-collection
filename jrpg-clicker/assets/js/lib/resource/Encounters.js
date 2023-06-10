@@ -5,12 +5,14 @@ import LevelManagement from "../tool/LevelManager.js";
 export default class Encounters {
 
 
-    static generateStart(level) {
-        return new EventStart(level);
+
+    static generateStart() {
+        return new EventStart();
     }
 
 
     static generateAdv() {
+
         let lm = new LevelManagement();
         let monster = lm.distributeRandomMonster();
         return new Adv('adv-clicker', {
@@ -19,7 +21,14 @@ export default class Encounters {
         });
     }
 
-    static bstop(eventStart) {
-        clearInterval(eventStart.interval);
+    static generateBoss() {
+
+        let lm = new LevelManagement();
+        let monster = lm.distributeRandomBoss();
+        return new Adv('adv-clicker', {
+            hp: lm.distributeRandomBossHp(),
+            adv: `<img src="assets/img/boss/boss (${monster}).png">`
+        }, true);
     }
+
 }

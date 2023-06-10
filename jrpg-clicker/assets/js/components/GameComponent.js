@@ -5,6 +5,7 @@ import Display from "../lib/tool/Display.js";
 import Config from "../lib/resource/Config.js";
 import Map from "../lib/Map.js";
 import Menu from "../lib/game/Menu.js";
+import DungeonManager from "../lib/dungeon_system/DungeonManager.js";
 
 export default class GameComponent {
 
@@ -30,8 +31,25 @@ export default class GameComponent {
         }, 500);
 
         let menu = new Menu();
+
+        DungeonManager.getInstance().add('SacredForest', 20, 6);
+        DungeonManager.getInstance().add('SacredStone', 20, 3);
+
+
+        let save = GameSave.getSave();
+        save.inventory = [];
+        GameSave.setSave(save); 
+
+        GameSave.setInventoryItem({
+          "name": "Key",
+          "url": "assets/img/icons/I_Key01.png",
+          "type": "Resource",
+          "nb" : 1
+        });
+
+        
+        
       
-     
     }
 
 

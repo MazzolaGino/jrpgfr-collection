@@ -4,21 +4,26 @@ import Map from "../Map.js";
 import Encounters from "../resource/Encounters.js";
 import LevelManagement from "../tool/LevelManager.js";
 import AdvBackground from "../tool/AdvBackground.js";
+import DungeonManager from "../dungeon_system/DungeonManager.js";
+import Chest from "../tool/Chest.js";
 
 
 export default class SacredStone extends BaseMap {
     constructor() {
         super();
 
-        this.level = 3;
         this.exit = 'Exit Dungeon';
         this.eventStart = null;
-        this.lm = new LevelManagement();
-        this.lm.setCurrentDungeonLevel(this.level);
+        this.loot = 'Chest';
+        DungeonManager.getInstance().setCurrent('SacredStone');
         AdvBackground.set(Config.getSacredStone().id);
+
+        this.chest = new Chest('sacred-stone');
+        
     }
     display() {
 
+        
         
         document.getElementById(Config.getMapContainerId()).innerHTML = /* html */ `
             <div class="blob-menu-header fade-in-animation"> Map - ${Config.getSacredStone().name} <span id="map-location"></span></div>
@@ -29,15 +34,17 @@ export default class SacredStone extends BaseMap {
 
         this.createGrid(30, 40, [
             { x: 5, y: 18, value: this.exit, action: (event) => {
-                this.lm.resetCurrentDungeonLevel();
                 this.eventStart.stop();
                 new Map();
                
             }},
             { x: 5, y: 19, value: this.exit, action: (event) => {
-                this.lm.resetCurrentDungeonLevel();
                 this.eventStart.stop();
                 new Map();
+            }},
+
+            { x: 15, y: 19, value: this.loot, action: (event) => {
+                this.chest.drop();
             }},
         ]);
     }
