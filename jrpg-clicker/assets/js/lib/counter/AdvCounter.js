@@ -48,7 +48,7 @@ export default class AdvCounter extends Observable {
         DungeonManager.getInstance().defeatBoss();
       }
       
-      new EventEnd();
+      new EventEnd(this.boss);
     
     } else {
       this.displayHp();

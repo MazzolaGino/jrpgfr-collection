@@ -1,4 +1,5 @@
 import _ from "../game/GameSave.js";
+import CookieManager from "../tool/CookieManager.js";
 
 export default class DungeonManager {
   static instance = null;
@@ -29,7 +30,7 @@ export default class DungeonManager {
   reset(name) {
     const dungeon = this.get(name);
     if (dungeon) {
-      dungeon.encounters = 20;
+      dungeon.encounters = 6;
       this.updateStorage(dungeon);
     }
   }
@@ -103,11 +104,11 @@ export default class DungeonManager {
   }
 
   remove(name) {
-    localStorage.removeItem(name);
+    CookieManager.remove(name);
   }
 
   get(name) {
-    const dungeonData = localStorage.getItem(name);
+    const dungeonData = CookieManager.getCookie(name);
     if (dungeonData) {
       return JSON.parse(dungeonData);
     }
@@ -115,7 +116,7 @@ export default class DungeonManager {
   }
 
   updateStorage(dungeon) {
-    localStorage.setItem(dungeon.name, JSON.stringify(dungeon));
+    CookieManager.setCookie(dungeon.name, JSON.stringify(dungeon));
   }
 
 }

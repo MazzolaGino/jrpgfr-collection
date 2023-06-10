@@ -14,6 +14,7 @@ export default class GameComponent {
         GameSave.init();
         new AutoCounter();
         new Map();
+
         const blob = new Blob('blob-clicker', {
             blob: '<img src="assets/img/ezgif-4-cad90254ac.gif">'
         });
@@ -32,8 +33,8 @@ export default class GameComponent {
 
         let menu = new Menu();
 
-        DungeonManager.getInstance().add('SacredForest', 20, 6);
-        DungeonManager.getInstance().add('SacredStone', 20, 3);
+        DungeonManager.getInstance().add('SacredForest', 6, 6);
+        DungeonManager.getInstance().add('SacredStone', 6, 3);
 
 
         let save = GameSave.getSave();
@@ -47,11 +48,7 @@ export default class GameComponent {
           "nb" : 1
         });
 
-        
-        
-      
     }
-
 
     moveDiv(divID) {
         var div = document.getElementById(divID);

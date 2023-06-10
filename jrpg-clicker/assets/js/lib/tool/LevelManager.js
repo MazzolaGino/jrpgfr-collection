@@ -48,12 +48,18 @@ export default class LevelManagement {
         return gain;
     }
 
+    distributeRandomBossExperience() {
+        let gain = this.calculateExperienceToNextLevelCustom(this.getCurrentDungeonLevel());
+        this.gainExperience(gain);
+        return gain; 
+    }
+
     distributeRandomHp() {
         return this.distributeRandomExperience() * 2;
     }
 
     distributeRandomBossHp() {
-        return this.distributeRandomExperience() * 20; 
+        return this.distributeRandomExperience() * 10;  
     }
 
     distributeRandomMonster() {
