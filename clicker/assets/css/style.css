@@ -1,0 +1,157 @@
+@font-face {
+  font-family: 'GameFont';
+  src: url(../font/font.ttf);
+}
+
+@font-face {
+  font-family: 'GameBody';
+  src: url(../font/body.ttf);
+}
+
+.container {
+    display: flex;
+    margin-left: 5%;
+    margin-right: 5%;
+    flex-wrap: wrap;
+    font-family: 'GameBody';
+    font-size: 13px;  
+}
+
+.navigation {
+  flex-basis: 100%;
+  
+}
+
+.navigation ul {
+  display: none;
+  list-style: none;
+}
+
+.navigation ul li {
+  cursor: pointer;
+}
+
+.navigation:hover ul {
+  display: inline;
+  position: absolute;
+  z-index: 2;
+  background-color: white;
+  margin: 0;
+  left: 5%;
+  top: 3%;
+  padding: 10px;
+}
+
+.section {
+  flex-basis: 30%;
+  margin: 5px;
+}
+
+.section h1 {
+  text-align: center;
+  background-color: black;
+  color: white;
+  margin: 0; 
+  font-size: 17px;
+  padding: 8px;
+}
+
+
+#minions, #missions{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px; 
+  background-color: chocolate;
+}
+
+#minions img {
+  flex-basis: 30%;
+  width: 56px;
+  height: 56px; 
+}
+
+#missions .mission-title {
+  font-weight: bold;
+  flex-basis: 100%;
+  margin-bottom: 10px;
+}
+
+#missions .mission-duration {
+  flex-basis: 100%;
+}
+
+#missions .duration-title {
+  margin-right: 5px;
+  font-weight: bold; 
+}
+
+.mission {
+  flex-basis: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 8px;
+  background-color: azure;
+  margin: 8px;
+  border-radius: 5px;
+}
+
+.mission-description {
+
+  flex-basis: 50%;
+}
+
+.mission-action {
+  flex-basis: 40%;
+  margin-top: 8px; 
+}
+
+.mission-action button{
+  font-family: 'GameBody';
+}
+
+@media screen and (max-width: 900px) {
+  .section {
+    flex-basis: 100%;
+  }
+
+  .mission-action {
+    flex-basis: 100%;
+  }
+
+}
+
+.animated-progress {
+  width: 150px; 
+  height: 3px;  
+  margin-top: 8px; 
+  border-radius: 5px;
+  border: 1px solid black;
+  overflow: hidden;
+  position: relative;
+}
+
+.animated-progress span {
+  height: 100%;
+  display: block;
+  width: 0;
+  color: rgb(255, 251, 251);
+  line-height: 30px;
+  position: absolute;
+  text-align: end;
+  padding-right: 5px;
+}
+
+.progress-blue span {
+  background-color: blue;
+}
+.progress-green span {
+  background-color: green;
+}
+.progress-purple span {
+  background-color: indigo;
+}
+.progress-red span {
+  background-color: red;
+}
+
+
