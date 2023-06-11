@@ -50,22 +50,23 @@ export default class Blob extends Base {
         let lm = new LevelManagement();
 
         document.getElementById(id) .innerHTML = `
-        <ul>
-            <li id="${Config.getLevelId()}" class="levelTtp">🆙 ${lm.level}</li>
-            <li class="clickRate">💥 ${NumberFormatter.format(lm.calculateClickRate())}</li>
-            <li class="AutoClick">💫 ${NumberFormatter.format(lm.calculateAutoClick())}</li>
-            <li class="AutoBattle">🗡 Auto Battle ON</li>
-        </ul>`;
+            <ul>
+                <li id="${Config.getLevelId()}" class="levelTtp">🆙 ${lm.level}</li>
+                <li class="clickRate">💥 ${NumberFormatter.format(lm.calculateClickRate())}</li>
+                <li class="AutoClick">💫 ${NumberFormatter.format(lm.calculateAutoClick())}</li>
+                <li class="AutoBattle">🗡 ON</li>
+            </ul>
+        `;
 
         AutoBattle.start(); 
 
         document.querySelector('li.AutoBattle').addEventListener('click', () => {
             if(AutoBattle.isStarted()) {
                 AutoBattle.stop();
-                document.querySelector('li.AutoBattle').innerHTML = '🗡 Auto Battle OFF';
+                document.querySelector('li.AutoBattle').innerHTML = '🗡 OFF';
             }else{
                 AutoBattle.start();
-                document.querySelector('li.AutoBattle').innerHTML = '🗡 Auto Battle ON';
+                document.querySelector('li.AutoBattle').innerHTML = '🗡 ON';
             }
         });
 

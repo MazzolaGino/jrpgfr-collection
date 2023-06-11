@@ -59,6 +59,10 @@
   }
   
   @media screen and (max-width: 900px) {
+
+    body, .blob-menu-header, .blob-body .hero-statistic { 
+      font-size: 12px !important;
+    }
     .modal-content {
       margin: 20px;
       max-width: 100%;
@@ -66,9 +70,20 @@
 
     #modal-inventory .inventory-item{
       flex-basis: 30%;
-      height: 70px;
       cursor: pointer;
     }
+
+    #modal-shop, #modal-weapon-shop {
+      flex-basis: 70%;
+    }
+
+    #modal-hero {
+      flex-basis: 30%;
+    }
+  
+    #modal-hero img {
+      height: 80px; 
+    } 
   }
 
   #modal-inventory {
