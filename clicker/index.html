@@ -1,97 +1,60 @@
-<!DOCTYPE html>
-<html>
+<DOCTYPE html>
+  <html>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link href="assets/css/style.css" rel="stylesheet" type="text/css">
-</head>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-<body>
 
-  <div class="container">
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css">
 
-    <div class="navigation"><span class="main-menu-title">Menu</span>
-      <ul>
-        <li>Save</li>
-        <li>Load</li>
-        <li>Reset</li>
-      </ul>
-    </div>
+  </head>
 
-    <div class="section">
-      <h1 class="section-title">Missions</h1>
-      <div class="box" id="missions">
-        <div class="mission">
-          <div class="mission-dexcription">
-            <div class="mission-title"><span class="name">Agora City</span> lv. <span class="level">10</span><div class="mission-action">
-              <button><i class="fa-solid fa-play"></i></button>
-              <button><i class="fa-solid fa-pause"></i></button>
-              <button><i class="fa-solid fa-stop"></i></button>
-              <button><i class="fa-solid fa-plus"></i></button>
-            </div></div>
-            <div class="mission-content">
-              <div class="mission-duration">
-                <span class="duration-title">Duration</span><span class="duration-time">05:00</span>
-              </div>
-              <div class="animated-progress progress-blue">
-                <span data-progress="45"></span>
-              </div>
-            </div>
-          </div>
-         
+  <body>
+    <div class="container">
+      <div class="sidebar">
+        <div class="sidebar-content">
+          <p><input type="checkbox" id="display-missions" /> Missions</p>
+          <p><input type="checkbox" id="display-minions" /> Minions</p>
+          <p><input type="checkbox" id="display-recruitment" />Recruitment</p>
         </div>
-        <div class="mission">
-          <div class="mission-dexcription">
-            <div class="mission-title"><span class="name">Agora City</span> lv. <span class="level">10</span><div class="mission-action">
-              <button><i class="fa-solid fa-play"></i></button>
-              <button><i class="fa-solid fa-pause"></i></button>
-              <button><i class="fa-solid fa-stop"></i></button>
-              <button><i class="fa-solid fa-plus"></i></button>
-            </div></div>
-            <div class="mission-content">
-              <div class="mission-duration">
-                <span class="duration-title">Duration</span><span class="duration-time">05:00</span>
+      </div>
+      <div id="right-sidebar">
+        <div class="section">
+          <h1 class="section-title">Harvester</h1>
+          <div id="harvester" class="cosmo section-content">
+              <div class="cosmo-stat">
+                <div id="golds"></div>
               </div>
-              <div class="animated-progress progress-blue">
-                <span data-progress="45"></span>
+              <div class="cosmo-image">
+                <img class="clicker" src="assets/img/cosmo/1 (1).png">
               </div>
-            </div>
           </div>
-         
         </div>
-        <div class="mission">
-          <div class="mission-dexcription">
-            <div class="mission-title"><span class="name">Agora City</span> lv. <span class="level">10</span><div class="mission-action">
-              <button><i class="fa-solid fa-play"></i></button>
-              <button><i class="fa-solid fa-pause"></i></button>
-              <button><i class="fa-solid fa-stop"></i></button>
-              <button><i class="fa-solid fa-plus"></i></button>
-            </div></div>
-            <div class="mission-content">
-              <div class="mission-duration">
-                <span class="duration-title">Duration</span><span class="duration-time">05:00</span>
-              </div>
-              <div class="animated-progress progress-blue">
-                <span data-progress="45"></span>
-              </div>
-            </div>
-          </div>
-         
+        <div id="missions-section" class="section">
+          <h1 class="section-title">Missions</h1>
+          <div class="section-content" id="missions"></div>
         </div>
-
+      </div>
+      <div id="content">
+        <div id="minions-section" class="section">
+          <h1 class="section-title">Recruited Minions</h1>
+          <div class="section-content" id="minions"></div>
+        </div>
+ 
+        <div id="recruitment-section" class="section">
+          <h1 class="section-title">Recruitment Room</h1>
+          <div class="section-content" id="shop"></div>
+        </div>
       </div>
     </div>
+    
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+      integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script type="module" src="App.js"></script>
+  </body>
 
-    <div class="section">
-      <h1 class="section-title">Minion Shop</h1>
-      <div class="box" id="minions"></div>
-    </div>
-
-  </div>
-  <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-  <script type="module" src="App.js"></script>
-</body>
-
-</html>
+  </html>

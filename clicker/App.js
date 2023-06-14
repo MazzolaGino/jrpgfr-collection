@@ -1,34 +1,23 @@
-import Mission from "./mission-system/Mission.js";
-import MinionFactory from "./mission-system/mission-factory/MinionFactory.js"
+import Layout from "./layout-system/Layout.js";
+import HarvesterDisplay from "./layout-system/HarvesterDisplay.js";
+import Game from "./game-system/Game.js";
+import MissionRepository from "./repository-system/MissionRepository.js";
+import MissionFactory from "./factory-system/MissionFactory.js";
+import MissionDisplay from "./layout-system/MissionDisplay.js";
+
+
 
 
 window.onload = (event) => {
 
-    $(".animated-progress span").each(function () {
-        $(this).animate(
-            {
-                width: $(this).attr("data-progress") + "%",
-            },
-            1000
-        );
-        $(this).text($(this).attr("data-progress") + "%");
-    });
+    let mission = MissionFactory.generateMission();
+
+    MissionDisplay.display(mission);
     
-    let minions = [
-        MinionFactory.getRandomMinion(1),
-        MinionFactory.getRandomMinion(2),
-        MinionFactory.getRandomMinion(3),
-        MinionFactory.getRandomMinion(3),
-        MinionFactory.getRandomMinion(3),
-        MinionFactory.getRandomMinion(3),
-    ];
+    Game.start();
+    new Layout();
+    new HarvesterDisplay();
 
-    minions.forEach((minion) => {
-
-        var div = document.createElement('div');
-        div.innerHTML = `<p><img src="${minion.image}"/></p>`;
-        document.getElementById('minions').append(div.firstChild);
-    });
 };
 
 
